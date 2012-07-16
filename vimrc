@@ -220,10 +220,22 @@ if filereadable($HOME . '.vimrc.local')
 endif
 
 "  ---------------------------------------------------------------------------
-"  Colors
+"  MacVIM
 "  ---------------------------------------------------------------------------
 
-let g:solarized_termcolors=256
+if has("gui_running")
+  set guioptions-=T " no toolbar set guioptions-=m " no menus
+  set guioptions-=r " no scrollbar on the right
+  set guioptions-=R " no scrollbar on the right
+  set guioptions-=l " no scrollbar on the left
+  set guioptions-=b " no scrollbar on the bottom
+  set guioptions=aiA
+endif
+
+"  ---------------------------------------------------------------------------
+"  Colors
+"  ---------------------------------------------------------------------------
+" let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
