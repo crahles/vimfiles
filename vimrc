@@ -257,5 +257,5 @@ colorscheme solarized
 autocmd! bufwritepost .vimrc source %
 autocmd! bufwritepost vimrc source %
 
-noremap <leader>d orequire 'binding'; binding.pry
-noremap <leader>D Orequire 'binding'; binding.pry
+noremap <leader>d orequire 'pry'; binding.pry
+noremap <leader>D Orequire 'pry'; binding.pry
