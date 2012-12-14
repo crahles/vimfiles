@@ -5,7 +5,7 @@ Tested on MacOS and Linux
 
 ## Quick Install
 
-    curl https://raw.github.com/crahles/vimfiles/master/bootstrap.sh -o - | sh
+    curl https://raw.github.com/hendrikb/vimfiles/master/bootstrap.sh -o - | sh
 
 ## INSTALLATION
 
@@ -65,13 +65,13 @@ If you get an error `no terminal library found` install `libncurses5-dev`.
 Note: You will already have a `~/.vim` folder, either delete or move it.
 
     mv ~/.vim ~/.vim.old
-    git clone https://github.com/crahles/vimfiles ~/.vim
+    git clone https://github.com/hendrikb/vimfiles ~/.vim
     cd ~/.vim
     rake install
 
 or run:
 
-    curl https://raw.github.com/crahles/vimfiles/master/bootstrap.sh -o - | sh
+    curl https://raw.github.com/hendrikb/vimfiles/master/bootstrap.sh -o - | sh
 
 #### To update to the latest vimfiles
 

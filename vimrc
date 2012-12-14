@@ -181,7 +181,7 @@ if exists(":Tab")
 endif
 
 " Powerline
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+set guifont="DejaVu Sans Mono for Powerline:h10"
 let g:Powerline_symbols='fancy'
 
 "  ---------------------------------------------------------------------------
