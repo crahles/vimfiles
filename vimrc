@@ -259,3 +259,6 @@ autocmd! bufwritepost vimrc source %
 
 noremap <leader>d orequire 'pry'; binding.pry
 noremap <leader>D Orequire 'pry'; binding.pry
+
+nmap <leader>t :w<CR>\|:execute "!zeus t %:" . line('.')<CR>
+
