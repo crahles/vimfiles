@@ -262,3 +262,23 @@ noremap <leader>D Orequire 'pry'; binding.pry
 
 nmap <leader>t :w<CR>\|:execute "!zeus t %:" . line('.')<CR>
 
+function! Buflist()
+    redir => bufnames
+    silent ls
+    redir END
+    let list = []
+    for i in split(bufnames, "\n")
+        let buf = split(i, '"' )
+        call add(list, buf[-2])
+|   endfor
+    return list
+endfunction
+
+function! Bdeleteonly()
+    let list = filter(Buflist(), 'v:val != bufname("%")')
+    for buffer in list
+        exec "bdelete ".buffer
+    endfor
+endfunction
+
+command! Bonly :silent call Bdeleteonly()
