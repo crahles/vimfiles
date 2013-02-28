@@ -46,10 +46,10 @@ set norelativenumber
 set undofile
 
 " Auto adjust window sizes when they become current
-set winwidth=84
-set winheight=5
-set winminheight=5
-set winheight=999
+" set winwidth=84
+" set winheight=5
+" set winminheight=5
+" set winheight=999
 
 set splitbelow splitright
 
