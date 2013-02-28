@@ -257,8 +257,8 @@ colorscheme solarized
 autocmd! bufwritepost .vimrc source %
 autocmd! bufwritepost vimrc source %
 
-noremap <leader>d orequire 'pry'; binding.pry
-noremap <leader>D Orequire 'pry'; binding.pry
+noremap <leader>d orequire 'pry'; binding.pry<ESC>
+noremap <leader>D Orequire 'pry'; binding.pry<ESC>
 
 nmap <leader>t :w<CR>\|:execute "!zeus t %:" . line('.')<CR>
 
