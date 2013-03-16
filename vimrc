@@ -181,8 +181,7 @@ if exists(":Tab")
 endif
 
 " Powerline
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
-let g:Powerline_symbols='fancy'
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 "  ---------------------------------------------------------------------------
 "  Language Mappings
@@ -190,6 +189,9 @@ let g:Powerline_symbols='fancy'
 
 " Other files to consider Ruby
 au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=
+
+" Python
+autocmd FileType python set sw=4 sts=4 et
 
 " CoffeeScript
 let coffee_compile_vert = 1
