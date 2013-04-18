@@ -41,13 +41,6 @@ Bundle 'git://github.com/kchmck/vim-coffee-script.git'
 Bundle 'git://github.com/vim-scripts/jQuery.git'
 Bundle 'git://github.com/cakebaker/scss-syntax.vim.git'
 
-" Snipmate and Snippets
-Bundle 'git://github.com/MarcWeber/vim-addon-mw-utils.git'
-Bundle 'git://github.com/tomtom/tlib_vim.git'
-Bundle 'git://github.com/garbas/vim-snipmate.git'
-Bundle 'git://github.com/honza/snipmate-snippets.git'
-
-
 filetype plugin indent on     " and turn it back on!
 
 " Load plugins that ship with Vim {{{1
