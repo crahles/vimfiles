@@ -312,3 +312,8 @@ noremap <leader>t :execute "!clear && bundle exec rspec " . Specname()<CR>
 noremap <leader>R :execute "!clear && zeus rspec " . Specname(). ":" . line('.')<CR>
 noremap <leader>r :execute "!clear && bundle exec rspec " . Specname(). ":" . line('.')<CR>
 
+" move between splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
