@@ -283,3 +283,32 @@ function! Bdeleteonly()
 endfunction
 
 command! Bonly :silent call Bdeleteonly()
+
+
+
+" Specname function {{{
+" returns the corresponding spec name for a file
+function! Specname()
+  let filename = @%
+  if filename =~? '_spec.rb'
+    return filename
+  else
+    let filename = substitute(filename, ".rb", "_spec.rb", "")
+    if filename =~? 'app/'
+      return substitute(filename, "app/", "spec/", "")
+    elseif filename =~? 'lib/'
+      return substitute(filename, "lib/", "spec/lib/", "")
+    else
+      return filename
+    endif
+  endif
+endfunction
+" }}}
+
+" run current file with rspec
+noremap <leader>T :execute "!clear && zeus rspec " . Specname()<CR>
+noremap <leader>t :execute "!clear && bundle exec rspec " . Specname()<CR>
+" run spec in current line
+noremap <leader>R :execute "!clear && zeus rspec " . Specname(). ":" . line('.')<CR>
+noremap <leader>r :execute "!clear && bundle exec rspec " . Specname(). ":" . line('.')<CR>
+
