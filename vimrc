@@ -260,7 +260,7 @@ autocmd! bufwritepost vimrc source %
 noremap <leader>d orequire 'pry'; binding.pry<ESC>
 noremap <leader>D Orequire 'pry'; binding.pry<ESC>
 
-nmap <leader>t :w<CR>\|:execute "!zeus t %:" . line('.')<CR>
+nmap <leader>t :w<CR>\|:execute "!bundle exec rspec %:" . line('.')<CR>
 nmap <leader>c :Bclose<CR>
 
 function! Buflist()
