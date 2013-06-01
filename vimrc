@@ -128,7 +128,7 @@ set wildignore=.svn,CVS,.git,*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak
 set suffixes+=.old
 
 " rvm-vim automatically as you switch from buffer to buffer
-:autocmd BufEnter * Rvm
+" :autocmd BufEnter * Rvm
 
 "  ---------------------------------------------------------------------------
 "  Function Keys
@@ -212,7 +212,7 @@ let Tlist_Ctags_Cmd = 'ctags'
 
 " Make Vim use RVM correctly when using Zsh
 " https://rvm.beginrescueend.com/integration/vim/
-set shell=/bin/sh
+set shell=/bin/bash
 
 " Finally, load custom configs
 if filereadable($HOME . '.vimrc.local')
