@@ -179,11 +179,6 @@ if exists(":Tab")
   vmap <leader>a: :Tab /:\zs<CR>
 endif
 
-" Powerline
-set guifont="DejaVu Sans Mono for Powerline:h10"
-let g:Powerline_symbols='fancy'
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-
 "  ---------------------------------------------------------------------------
 "  Language Mappings
 "  ---------------------------------------------------------------------------
@@ -323,3 +318,4 @@ nnoremap <C-l> <C-w>l
 
 :nnoremap <leader>os :execute "vsplit " . Specname()<cr>
 
+let g:airline_powerline_fonts=1
