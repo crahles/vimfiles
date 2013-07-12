@@ -106,9 +106,8 @@ set hlsearch
 nmap n nzz
 nmap N Nzz
 
-" ACK
-set grepprg=ack
-nnoremap <leader>a :Ack
+" Ag/the_silver_searcher
+nnoremap <leader>a :Ag
 
 " Easy commenting
 nnoremap // :TComment<CR>
