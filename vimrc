@@ -107,9 +107,12 @@ nmap n nzz
 nmap N Nzz
 
 " ACK
-set grepprg=ack
-nnoremap <leader>a :Ack
+" set grepprg=ack
+" nnoremap <leader>a :Ack
 
+" AG
+nnoremap <leader>a :Ag
+"
 " Easy commenting
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
@@ -181,7 +184,11 @@ if exists(":Tab")
 endif
 
 " Powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'powerlineish'
 
 "  ---------------------------------------------------------------------------
 "  Language Mappings
