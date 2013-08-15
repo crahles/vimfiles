@@ -29,6 +29,7 @@ Bundle 'git://github.com/Townk/vim-autoclose.git'
 Bundle 'git://github.com/godlygeek/tabular.git'
 Bundle 'git://github.com/scrooloose/syntastic.git'
 Bundle 'git://github.com/sebastian030/vim-extract-method-for-ruby.git'
+Bundle 'git://github.com/scrooloose/nerdtree.git'
 
 " Language Support
 Bundle 'git://github.com/tpope/vim-rails.git'
