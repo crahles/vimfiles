@@ -319,5 +319,4 @@ let g:airline_powerline_fonts=1
 
 " NERDtree config
 map <C-n> :NERDTreeToggle<CR>
-autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
