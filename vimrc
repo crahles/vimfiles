@@ -107,7 +107,7 @@ nmap n nzz
 nmap N Nzz
 
 " Ag/the_silver_searcher
-nnoremap <leader>a :Ag
+nnoremap <leader>a :Ag<space>
 
 " Easy commenting
 nnoremap // :TComment<CR>
