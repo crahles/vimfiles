@@ -30,7 +30,6 @@ Bundle 'git://github.com/godlygeek/tabular.git'
 Bundle 'git://github.com/scrooloose/syntastic.git'
 Bundle 'git://github.com/sebastian030/vim-extract-method-for-ruby.git'
 Bundle 'git://github.com/scrooloose/nerdtree.git'
-Bundle 'git://github.com/sjl/threesome.vim.git'
 
 " Language Support
 Bundle 'git://github.com/tpope/vim-rails.git'
