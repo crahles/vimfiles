@@ -43,6 +43,10 @@ Bundle 'git://github.com/vim-scripts/jQuery.git'
 Bundle 'git://github.com/cakebaker/scss-syntax.vim.git'
 Bundle 'git://github.com/vim-scripts/nginx.vim'
 
+
+" Colors
+Bundle 'git://github.com/shawncplus/skittles_berry'
+
 filetype plugin indent on     " and turn it back on!
 
 " Load plugins that ship with Vim {{{1
