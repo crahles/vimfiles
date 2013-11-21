@@ -184,7 +184,7 @@ endif
 "  ---------------------------------------------------------------------------
 
 " Other files to consider Ruby
-au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=
+au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,[Vv]agrantfile,Guardfile,Capfile set filetype=ruby
 
 " Python
 autocmd FileType python set sw=4 sts=4 et
