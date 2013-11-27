@@ -322,3 +322,6 @@ au BufNewFile,BufReadPost *.coffee setl foldmethod=indent
 au BufNewFile,BufReadPost *.scss setl foldmethod=indent
 au BufNewFile,BufReadPost *.sass setl foldmethod=indent
 au BufRead,BufNewFile *.scss set filetype=scss
+
+" nginx
+au BufRead,BufNewFile nginx.conf,/etc/nginx/sites-*/* set filetype=nginx
