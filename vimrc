@@ -179,24 +179,6 @@ if exists(":Tab")
   vmap <leader>a: :Tab /:\zs<CR>
 endif
 
-"  ---------------------------------------------------------------------------
-"  Language Mappings
-"  ---------------------------------------------------------------------------
-
-" Other files to consider Ruby
-au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,[Vv]agrantfile,Guardfile,Capfile set filetype=ruby
-
-" Python
-autocmd FileType python set sw=4 sts=4 et
-
-" CoffeeScript
-let coffee_compile_vert = 1
-au BufNewFile,BufReadPost *.coffee setl foldmethod=indent
-
-" SASS / SCSS
-au BufNewFile,BufReadPost *.scss setl foldmethod=indent
-au BufNewFile,BufReadPost *.sass setl foldmethod=indent
-au BufRead,BufNewFile *.scss set filetype=scss
 
 "  ---------------------------------------------------------------------------
 "  Directories
@@ -321,3 +303,22 @@ let g:airline_powerline_fonts=1
 " NERDtree config
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+"  ---------------------------------------------------------------------------
+"  Language Mappings
+"  ---------------------------------------------------------------------------
+
+" Other files to consider Ruby
+au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,[Vv]agrantfile,Guardfile,Capfile set filetype=ruby
+
+" Python
+autocmd FileType python set sw=4 sts=4 et
+
+" CoffeeScript
+let coffee_compile_vert = 1
+au BufNewFile,BufReadPost *.coffee setl foldmethod=indent
+
+" SASS / SCSS
+au BufNewFile,BufReadPost *.scss setl foldmethod=indent
+au BufNewFile,BufReadPost *.sass setl foldmethod=indent
+au BufRead,BufNewFile *.scss set filetype=scss
