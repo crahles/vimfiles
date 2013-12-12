@@ -42,14 +42,8 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set number
-set norelativenumber
+set relativenumber
 set undofile
-
-" Auto adjust window sizes when they become current
-" set winwidth=84
-" set winheight=5
-" set winminheight=5
-" set winheight=999
 
 set splitbelow splitright
 
@@ -80,19 +74,6 @@ endif
 "  Mappings
 "  ---------------------------------------------------------------------------
 
-" Turn off arrow keys (this might not be a good idea for beginners, but it is
-" the best way to ween yourself of arrow keys on to hjkl)
-" http://yehudakatz.com/2010/07/29/everyone-who-tried-to-convince-me-to-use-vim-was-wrong/
-
-" nnoremap <Left> :echoe "Use h"<CR>
-" nnoremap <Right> :echoe "Use l"<CR>
-" nnoremap <Up> :echoe "Use k"<CR>
-" nnoremap <Down> :echoe "Use j"<CR>"
-" inoremap <up> <nop>
-" inoremap <down> <nop>
-" inoremap <left> <nop>
-" inoremap <right> <nop>
-
 " Searching / moving
 nnoremap / /\v
 vnoremap / /\v
@@ -117,9 +98,6 @@ vnoremap // :TComment<CR>
 noremap <tab> :bn<CR>
 noremap <S-tab> :bp<CR>
 " close buffer
-nmap <leader>d :Bclose<CR>
-" close all buffers
-nmap <leader>D :bufdo bd<CR>
 
 " Ignore some binary, versioning and backup files when auto-completing
 set wildignore=.svn,CVS,.git,*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak
@@ -144,10 +122,6 @@ imap  <silent> <F6> <Esc> mmgg=G`m^zz
 "  Plugins
 "  ---------------------------------------------------------------------------
 
-" eradicate all trailing whitespace all the time
-let g:DeleteTrailingWhitespace = 1
-let g:DeleteTrailingWhitespace_Action = 'delete'
-
 " AutoClose
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '#{': '}'}
 let g:AutoCloseProtectedRegions = ["Character"]
@@ -169,17 +143,6 @@ function! s:align()
   endif
 endfunction
 
-" Tabularize
-if exists(":Tab")
-  nmap <leader>a\| :Tab /\|<CR>
-  vmap <leader>a\| :Tab /\|<CR>
-  nmap <leader>a= :Tab /=<CR>
-  vmap <leader>a= :Tab /=<CR>
-  nmap <leader>a: :Tab /:\zs<CR>
-  vmap <leader>a: :Tab /:\zs<CR>
-endif
-
-
 "  ---------------------------------------------------------------------------
 "  Directories
 "  ---------------------------------------------------------------------------
@@ -200,19 +163,6 @@ if filereadable($HOME . '.vimrc.local')
 endif
 
 "  ---------------------------------------------------------------------------
-"  MacVIM
-"  ---------------------------------------------------------------------------
-
-if has("gui_running")
-  set guioptions-=T " no toolbar set guioptions-=m " no menus
-  set guioptions-=r " no scrollbar on the right
-  set guioptions-=R " no scrollbar on the right
-  set guioptions-=l " no scrollbar on the left
-  set guioptions-=b " no scrollbar on the bottom
-  set guioptions=aiA
-endif
-
-"  ---------------------------------------------------------------------------
 "  GnomeTerminal
 "  ---------------------------------------------------------------------------
 set t_Co=256
@@ -228,8 +178,6 @@ colorscheme solarized
 "  ---------------------------------------------------------------------------
 "  Misc
 "  ---------------------------------------------------------------------------
-
-
 
 " When vimrc, either directly or via symlink, is edited, automatically reload it
 autocmd! bufwritepost .vimrc source %
@@ -298,11 +246,10 @@ nnoremap <C-l> <C-w>l
 
 :nnoremap <leader>os :execute "vsplit " . Specname()<cr>
 
+"  ---------------------------------------------------------------------------
+"  Airline Configuration
+"  ---------------------------------------------------------------------------
 let g:airline_powerline_fonts=1
-
-" NERDtree config
-map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 "  ---------------------------------------------------------------------------
 "  Language Mappings
