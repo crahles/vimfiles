@@ -21,8 +21,26 @@ set history=10000
 set nobackup
 set nowritebackup
 set noswapfile
-syntax enable
 set autoread
+
+"  ---------------------------------------------------------------------------
+"  Colors
+"  ---------------------------------------------------------------------------
+
+if &t_Co > 2 || has("gui_running")
+  syntax enable
+  set hlsearch
+  " check to make sure vim has been compiled with colorcolumn support
+  " before enabling it
+  if exists("+colorcolumn")
+    set colorcolumn=80
+  endif
+
+  let g:solarized_termcolors=256
+  set background=dark
+  colorscheme solarized
+  " colorscheme skittles_berry
+endif
 
 "  ---------------------------------------------------------------------------
 "  UI
@@ -67,11 +85,6 @@ set nowrap
 set textwidth=79
 set formatoptions=n
 
-" check to make sure vim has been compiled with colorcolumn support
-" before enabling it
-if exists("+colorcolumn")
-  set colorcolumn=80
-endif
 
 "  ---------------------------------------------------------------------------
 "  Mappings
@@ -84,7 +97,6 @@ set ignorecase
 set smartcase
 set incsearch
 set showmatch
-set hlsearch
 
 " Center screen when scrolling search results
 nmap n nzz
@@ -170,13 +182,6 @@ endif
 "  ---------------------------------------------------------------------------
 set t_Co=256
 
-"  ---------------------------------------------------------------------------
-"  Colors
-"  ---------------------------------------------------------------------------
-let g:solarized_termcolors=256
-set background=dark
-colorscheme solarized
-" colorscheme skittles_berry
 
 "  ---------------------------------------------------------------------------
 "  Misc
