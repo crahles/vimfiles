@@ -312,3 +312,6 @@ set grepprg=grep\ -nH\ $*
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
+
+
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
