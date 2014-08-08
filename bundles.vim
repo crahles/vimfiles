@@ -16,6 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 " Tools
 
 Bundle 'bling/vim-airline.git'
+Bundle 'tpope/vim-fugitive'
 
 " Languages
 
