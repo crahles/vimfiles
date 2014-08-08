@@ -13,7 +13,13 @@ Plugin 'gmarik/Vundle.vim'
 
 " VIM PLUGINS HERE
 
-Bundle 'git://github.com/bling/vim-airline.git'
+" Tools
+
+Bundle 'bling/vim-airline.git'
+
+" Languages
+
+" Colors
 
 
 
