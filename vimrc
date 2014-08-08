@@ -1,0 +1,2 @@
+silent! runtime bundles.vim
+
