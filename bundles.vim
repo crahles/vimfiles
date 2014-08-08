@@ -20,6 +20,7 @@ Bundle 'bling/vim-airline.git'
 " Languages
 
 " Colors
+Bundle 'altercation/vim-colors-solarized'
 
 
 
