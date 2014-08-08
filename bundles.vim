@@ -13,6 +13,8 @@ Plugin 'gmarik/Vundle.vim'
 
 " VIM PLUGINS HERE
 
+Bundle 'git://github.com/bling/vim-airline.git'
+
 
 
 
