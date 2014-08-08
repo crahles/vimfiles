@@ -315,3 +315,4 @@ let g:tex_flavor='latex'
 
 
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
+let g:agprg="ag --ignore=tmp --ignore=log --ignore=db --ignore=bin --ignore=coverage --ignore='jquery*' --ignore='bootstrap*' --ignore='*foundation' --ignore='app/assets/javascripts/public/*.js' --ignore='public/assets' --column"
