@@ -52,6 +52,11 @@ nnoremap <C-l> <C-w>l
 noremap <leader>d orequire 'pry'; binding.pry<ESC>
 noremap <leader>D Orequire 'pry'; binding.pry<ESC>
 
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
 " Ignore some binary, versioning and backup files when auto-completing
 set wildignore=.svn,CVS,.git,*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak
 set backupdir=~/tmp,/tmp
