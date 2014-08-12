@@ -17,7 +17,7 @@ set splitbelow splitright
 "  Text Formatting
 "  ---------------------------------------------------------------------------
 
-set tabstop=1
+set tabstop=4
 set shiftwidth=2
 set softtabstop=2
 set expandtab
