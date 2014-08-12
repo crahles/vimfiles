@@ -20,6 +20,7 @@ Bundle 'bling/vim-airline.git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tomtom/tcomment_vim.git'
 Bundle 'Townk/vim-autoclose.git'
+Bundle 'kien/ctrlp.vim.git'
 
 " Languages
 
