@@ -64,12 +64,12 @@ noremap <leader>D Orequire 'pry'; binding.pry<ESC>
 "  ---------------------------------------------------------------------------
 " Plugins
 "  ---------------------------------------------------------------------------
-source plugin_configs/vim-colors-solarized.vim
-source plugin_configs/airline.vim
-source plugin_configs/ag.vim
-source plugin_configs/t_comment.vim
-source plugin_configs/auto_close.vim
-source plugin_configs/ctrlp.vim
+runtime plugin_configs/vim-colors-solarized.vim
+runtime plugin_configs/airline.vim
+runtime plugin_configs/ag.vim
+runtime plugin_configs/t_comment.vim
+runtime plugin_configs/auto_close.vim
+runtime plugin_configs/ctrlp.vim
 
 syntax enable
 set hlsearch
