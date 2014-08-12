@@ -75,6 +75,7 @@ runtime plugin_configs/ag.vim
 runtime plugin_configs/t_comment.vim
 runtime plugin_configs/auto_close.vim
 runtime plugin_configs/ctrlp.vim
+runtime plugin_configs/bclose.vim
 
 syntax enable
 set hlsearch
