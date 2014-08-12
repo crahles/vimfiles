@@ -55,6 +55,7 @@ source plugin_configs/vim-colors-solarized.vim
 source plugin_configs/airline.vim
 source plugin_configs/ag.vim
 source plugin_configs/t_comment.vim
+source plugin_configs/auto_close.vim
 
 syntax enable
 set hlsearch
