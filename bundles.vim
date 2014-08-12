@@ -9,6 +9,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+Bundle 'rking/ag.vim.git'
 
 
 " VIM PLUGINS HERE
