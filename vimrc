@@ -3,8 +3,6 @@ silent! runtime bundles.vim
 let mapleader = ","
 let g:mapleader = ","
 
-
-
 "  ---------------------------------------------------------------------------
 "  UI
 "  ---------------------------------------------------------------------------
@@ -27,7 +25,6 @@ set expandtab
 set nowrap
 set textwidth=79
 set formatoptions=n
-
 
 "  ---------------------------------------------------------------------------
 "  Mappings
@@ -52,14 +49,13 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+noremap <leader>d orequire 'pry'; binding.pry<ESC>
+noremap <leader>D Orequire 'pry'; binding.pry<ESC>
+
 " Ignore some binary, versioning and backup files when auto-completing
 set wildignore=.svn,CVS,.git,*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak
 set backupdir=~/tmp,/tmp
 set undodir=~/.vim/.tmp,~/tmp,~/.tmp,/tmp
-
-
-noremap <leader>d orequire 'pry'; binding.pry<ESC>
-noremap <leader>D Orequire 'pry'; binding.pry<ESC>
 
 "  ---------------------------------------------------------------------------
 " Plugins
@@ -73,5 +69,3 @@ runtime plugin_configs/ctrlp.vim
 
 syntax enable
 set hlsearch
-
-
