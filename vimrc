@@ -3,6 +3,8 @@ silent! runtime bundles.vim
 let mapleader = ","
 let g:mapleader = ","
 
+
+
 "  ---------------------------------------------------------------------------
 "  UI
 "  ---------------------------------------------------------------------------
@@ -11,7 +13,6 @@ set title
 set encoding=utf-8
 set number
 set relativenumber
-
 set splitbelow splitright
 
 "  ---------------------------------------------------------------------------
@@ -49,6 +50,9 @@ set wildignore=.svn,CVS,.git,*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak
 set backupdir=~/tmp,/tmp
 set undodir=~/.vim/.tmp,~/tmp,~/.tmp,/tmp
 
+
+noremap <leader>d orequire 'pry'; binding.pry<ESC>
+noremap <leader>D Orequire 'pry'; binding.pry<ESC>
 
 "  ---------------------------------------------------------------------------
 " Plugins
