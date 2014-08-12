@@ -40,6 +40,10 @@ set smartcase
 set incsearch
 set showmatch
 
+" Switch between buffers
+noremap <tab> :bn<CR>
+noremap <S-tab> :bp<CR>
+
 source plugin_configs/vim-colors-solarized.vim
 source plugin_configs/airline.vim
 source plugin_configs/ag.vim
