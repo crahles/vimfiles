@@ -26,6 +26,7 @@ Bundle 'bling/vim-bufferline'
 " Languages
 Bundle 'vim-ruby/vim-ruby'
 Plugin 'fatih/vim-go'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
 " Colors
 Bundle 'altercation/vim-colors-solarized'
