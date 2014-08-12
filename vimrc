@@ -41,9 +41,10 @@ set smartcase
 set incsearch
 set showmatch
 
-" Switch between buffers
+" Switch, close buffers
 noremap <tab> :bn<CR>
 noremap <S-tab> :bp<CR>
+nmap <leader>c :Bclose<CR>
 
 " Ignore some binary, versioning and backup files when auto-completing
 set wildignore=.svn,CVS,.git,*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak
