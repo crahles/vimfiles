@@ -23,6 +23,7 @@ Bundle 'Townk/vim-autoclose.git'
 Bundle 'kien/ctrlp.vim.git'
 
 " Languages
+Bundle 'vim-ruby/vim-ruby'
 
 " Colors
 Bundle 'altercation/vim-colors-solarized'
@@ -34,6 +35,11 @@ Bundle 'altercation/vim-colors-solarized'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+syntax on             " Enable syntax highlighting
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
