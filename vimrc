@@ -44,6 +44,13 @@ set showmatch
 noremap <tab> :bn<CR>
 noremap <S-tab> :bp<CR>
 
+" Ignore some binary, versioning and backup files when auto-completing
+set wildignore=.svn,CVS,.git,*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak
+
+
+"  ---------------------------------------------------------------------------
+" Plugins
+"  ---------------------------------------------------------------------------
 source plugin_configs/vim-colors-solarized.vim
 source plugin_configs/airline.vim
 source plugin_configs/ag.vim
