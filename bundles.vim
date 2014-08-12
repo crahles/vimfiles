@@ -21,6 +21,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tomtom/tcomment_vim.git'
 Bundle 'Townk/vim-autoclose.git'
 Bundle 'kien/ctrlp.vim.git'
+Bundle 'bling/vim-bufferline'
 
 " Languages
 Bundle 'vim-ruby/vim-ruby'
