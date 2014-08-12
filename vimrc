@@ -43,6 +43,7 @@ set showmatch
 source plugin_configs/vim-colors-solarized.vim
 source plugin_configs/airline.vim
 source plugin_configs/ag.vim
+source plugin_configs/t_comment.vim
 
 syntax enable
 set hlsearch
