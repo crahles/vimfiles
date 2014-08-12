@@ -6,3 +6,4 @@ silent! runtime plugin_configs/airline.vim
 syntax enable
 set hlsearch
 
+
