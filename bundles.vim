@@ -23,6 +23,7 @@ Bundle 'Townk/vim-autoclose.git'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'bling/vim-bufferline'
 Bundle 'godlygeek/tabular.git'
+Bundle 'tpope/vim-surround'
 
 " Languages
 Bundle 'vim-ruby/vim-ruby'
