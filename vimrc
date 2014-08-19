@@ -27,8 +27,8 @@ set textwidth=79
 set formatoptions=n
 set colorcolumn=80
 
-set listchars=eol:⏎,tab:>-,trail:·,extends:>,precedes:<,nbsp:❌
-" set list
+set listchars=tab:>-,trail:·,extends:>,precedes:<,nbsp:❌
+set list
 
 "  ---------------------------------------------------------------------------
 "  Mappings
