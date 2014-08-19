@@ -28,7 +28,7 @@ set formatoptions=n
 set colorcolumn=80
 
 set listchars=eol:⏎,tab:>-,trail:·,extends:>,precedes:<,nbsp:❌
-set list
+" set list
 
 "  ---------------------------------------------------------------------------
 "  Mappings
@@ -53,6 +53,11 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" indent file and return cursor and center cursor
+map   <silent> <F6> mmgg=G`m^zz
+imap  <silent> <F6> <Esc> mmgg=G`m^zz
+
+" binding.pry mappings
 noremap <leader>d orequire 'pry'; binding.pry<ESC>
 noremap <leader>D Orequire 'pry'; binding.pry<ESC>
 
