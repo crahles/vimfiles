@@ -70,6 +70,7 @@ endif
 set wildignore=.svn,CVS,.git,*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak
 set backupdir=~/tmp,/tmp
 set undodir=~/.vim/.tmp,~/tmp,~/.tmp,/tmp
+set dir=/tmp
 
 "  ---------------------------------------------------------------------------
 " Plugins
