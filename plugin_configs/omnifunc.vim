@@ -6,4 +6,5 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType go set omnifunc=gocomplete#Complete
 autocmd FileType ruby set omnifunc=rubycomplete#Complete
+autocmd FileType bash set omnifunc=bashcomplete#Complete
 
