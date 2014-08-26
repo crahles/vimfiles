@@ -82,6 +82,7 @@ runtime plugin_configs/t_comment.vim
 runtime plugin_configs/auto_close.vim
 runtime plugin_configs/ctrlp.vim
 runtime plugin_configs/bclose.vim
+runtime plugin_configs/chronos.vim
 
 runtime plugin_configs/omnifunc.vim
 
