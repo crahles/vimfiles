@@ -1,1 +1,1 @@
-let g:ChronosInactivityThreshold = 120
+let g:ChronosInactivityThreshold = 240
