@@ -25,6 +25,7 @@ Bundle 'bling/vim-bufferline'
 Bundle 'godlygeek/tabular.git'
 Bundle 'tpope/vim-surround'
 Bundle 'saevarb/chronos'
+Bundle 'scrooloose/syntastic'
 
 " Languages
 Bundle 'vim-ruby/vim-ruby'
