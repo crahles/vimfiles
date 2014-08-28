@@ -29,7 +29,7 @@ Bundle 'scrooloose/syntastic'
 
 " Languages
 Bundle 'vim-ruby/vim-ruby'
-Plugin 'fatih/vim-go'
+Plugin 'vim-jp/go-vim'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
 " Colors
