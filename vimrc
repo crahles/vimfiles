@@ -30,6 +30,7 @@ set colorcolumn=80
 set listchars=tab:>-,trail:·,extends:>,precedes:<,nbsp:❌
 set list
 
+
 "  ---------------------------------------------------------------------------
 "  Mappings
 "  ---------------------------------------------------------------------------
@@ -86,5 +87,12 @@ runtime plugin_configs/chronos.vim
 
 runtime plugin_configs/omnifunc.vim
 
+
+"  ---------------------------------------------------------------------------
+" Syntax
+"  ---------------------------------------------------------------------------
+
 syntax enable
 set hlsearch
+
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
