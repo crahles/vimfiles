@@ -26,6 +26,7 @@ Bundle 'godlygeek/tabular.git'
 Bundle 'tpope/vim-surround'
 Bundle 'saevarb/chronos'
 Bundle 'scrooloose/syntastic'
+Bundle 'ervandew/supertab'
 
 " Languages
 Bundle 'vim-ruby/vim-ruby'
