@@ -26,13 +26,13 @@ Bundle 'tpope/vim-surround'
 Bundle 'saevarb/chronos'
 Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
-Bundle 'chrisbra/csv.vim'
 
 " Languages
 Bundle 'vim-ruby/vim-ruby'
 Plugin 'vim-jp/go-vim'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'chrisbra/csv.vim'
 
 " Colors
 Bundle 'altercation/vim-colors-solarized'
