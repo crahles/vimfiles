@@ -76,16 +76,16 @@ set dir=/tmp
 "  ---------------------------------------------------------------------------
 " Plugins
 "  ---------------------------------------------------------------------------
-runtime plugin_configs/vim-colors-solarized.vim
-runtime plugin_configs/airline.vim
-runtime plugin_configs/ag.vim
-runtime plugin_configs/t_comment.vim
-runtime plugin_configs/auto_close.vim
-runtime plugin_configs/ctrlp.vim
-runtime plugin_configs/bclose.vim
-runtime plugin_configs/chronos.vim
+runtime plugin_config/vim-colors-solarized.vim
+runtime plugin_config/airline.vim
+runtime plugin_config/ag.vim
+runtime plugin_config/t_comment.vim
+runtime plugin_config/auto_close.vim
+runtime plugin_config/ctrlp.vim
+runtime plugin_config/bclose.vim
+runtime plugin_config/chronos.vim
 
-runtime plugin_configs/omnifunc.vim
+runtime plugin_config/omnifunc.vim
 
 
 "  ---------------------------------------------------------------------------
