@@ -32,6 +32,7 @@ Bundle 'ervandew/supertab'
 Bundle 'vim-ruby/vim-ruby'
 Plugin 'vim-jp/go-vim'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Bundle 'kchmck/vim-coffee-script'
 
 " Colors
 Bundle 'altercation/vim-colors-solarized'
