@@ -85,6 +85,7 @@ runtime plugin_config/airline.vim
 runtime plugin_config/auto_close.vim
 runtime plugin_config/bclose.vim
 runtime plugin_config/chronos.vim
+runtime plugin_config/csv.vim
 runtime plugin_config/ctrlp.vim
 runtime plugin_config/omnifunc.vim
 runtime plugin_config/t_comment.vim

@@ -26,6 +26,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'saevarb/chronos'
 Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
+Bundle 'chrisbra/csv.vim'
 
 " Languages
 Bundle 'vim-ruby/vim-ruby'
