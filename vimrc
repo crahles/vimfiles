@@ -96,3 +96,4 @@ syntax enable
 set hlsearch
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,[Vv]agrantfile,Guardfile,Capfile set filetype=ruby
