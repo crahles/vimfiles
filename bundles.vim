@@ -32,7 +32,6 @@ Bundle 'vim-ruby/vim-ruby'
 Plugin 'vim-jp/go-vim'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'chrisbra/csv.vim'
 
 " Colors
 Bundle 'altercation/vim-colors-solarized'
