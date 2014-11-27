@@ -52,7 +52,7 @@ https://github.com/Lokaltog/powerline-fonts
 
 ```
 cd ~/code
-goit clone https://github.com/Lokaltog/powerline-fonts.git
+git clone https://github.com/Lokaltog/powerline-fonts.git
 cd powerline-fonts
 ./install
 ```
