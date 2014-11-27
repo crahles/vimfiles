@@ -3,7 +3,7 @@ vim Installation
 Prerequisites (on Ubuntu & Linux Mint)
 ---
 ```
-sudo apt-get install libpython3-dev libpython-dev libperl-dev libruby2.0 curl libx11-dev libxtst-dev libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev git mercurial terminator
+sudo apt-get install libpython3-dev libpython-dev libperl-dev libruby2.0 curl libx11-dev libxtst-dev libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev ruby-dev libncurses5-dev git mercurial terminator
 ```
 You will need to use a good terminal emulator, such as terminator.
 
