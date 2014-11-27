@@ -22,6 +22,7 @@ Bundle 'tomtom/tcomment_vim.git'
 Bundle 'Townk/vim-autoclose.git'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'godlygeek/tabular.git'
+Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'saevarb/chronos'
 Bundle 'scrooloose/syntastic'
@@ -32,7 +33,6 @@ Bundle 'vim-ruby/vim-ruby'
 Plugin 'vim-jp/go-vim'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'chrisbra/csv.vim'
 
 " Colors
 Bundle 'altercation/vim-colors-solarized'

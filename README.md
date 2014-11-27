@@ -1,9 +1,9 @@
 vim Installation
 ==
-Prerequisites
+Prerequisites (on Ubuntu & Linux Mint)
 ---
 ```
-sudo apt-get install libpython3-dev libpython-dev libperl-dev terminator
+sudo apt-get install libpython3-dev libpython-dev libperl-dev libruby2.0 curl libx11-dev libxtst-dev libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev git mercurial terminator
 ```
 You will need to use a good terminal emulator, such as terminator.
 
@@ -13,10 +13,14 @@ Install vim
 
 ```
 # do once:
+mkdir ~/code
+cd ~/code
+
 hg clone https://vim.googlecode.com/hg/ vim
 cd vim
 
 # do regularly
+cd ~/code/vim
 hg pull
 hg update
 make distclean
@@ -40,3 +44,17 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cd ~/.vim
 ./update_bundles.sh
 ```
+
+Install most awesome  "Source Code Pro for Powerline" fonts on Ubuntu/Linux Mint
+---
+For Details on those fonts, that will make your vim will look pretty cool, check out the projects website:
+https://github.com/Lokaltog/powerline-fonts
+
+```
+cd ~/code
+goit clone https://github.com/Lokaltog/powerline-fonts.git
+cd powerline-fonts
+./install
+```
+
+**You should now be able to able to use Vim from your command line.** :)
