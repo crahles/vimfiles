@@ -54,7 +54,22 @@ https://github.com/Lokaltog/powerline-fonts
 cd ~/code
 git clone https://github.com/Lokaltog/powerline-fonts.git
 cd powerline-fonts
-./install
+./install.sh
 ```
+
+After you installed your fonts to ```~/.fonts``` you should now switch to these
+fonts in your terminal emulator application. Therefor, in Terminator for
+example, go to the *Preferences* and disable system fonts, select "Source Code
+Pro for Powerline" (or anything similar).
+
+If colors don't seem to work (you should see a lot of yellow/green and syntax
+highlighting), make sure your environment variable ```TERM``` is set to
+something ```xterm-256color```. You can add something like...
+
+```
+export TERM=xterm-256color
+```
+
+... to your ```~/.bashrc```.
 
 **You should now be able to able to use Vim from your command line.** :)
