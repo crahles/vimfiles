@@ -30,8 +30,7 @@ Bundle 'ervandew/supertab'
 
 " Languages
 Bundle 'vim-ruby/vim-ruby'
-Plugin 'vim-jp/go-vim'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plugin 'fatih/vim-go'
 Bundle 'kchmck/vim-coffee-script'
 
 " Colors
