@@ -38,7 +38,7 @@ Install vim configuration
 ---
 
 ```
-git clone --branch=complete_clean_up https://github.com/hendrikb/vimfiles.git ~/.vim
+git clone --branch=master https://github.com/hendrikb/vimfiles.git ~/.vim
 cp ~/.vimrc ~/.vimrc.old ; ln -sf ~/.vim/vimrc ~/.vimrc
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cd ~/.vim
