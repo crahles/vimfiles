@@ -227,6 +227,7 @@ endif
 "  ---------------------------------------------------------------------------
 "   MacVIM / Gvim / Terminal vim setting
 "  ---------------------------------------------------------------------------
+colorscheme jellybeans
 if has("gui_running")
   set guioptions-=T " no toolbar set guioptions-=m " no menus
   set guioptions-=r " no scrollbar on the right
@@ -244,11 +245,13 @@ if has("gui_running")
   " set guifont=LiberationMono\ for\ Powerline\ 10
   " set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline:h15
   " set guifont=Source\ Code\ Pro\ for\ Powerline:h15
-  set guifont=Ubuntu\ Mono\ derivative\ Powerline:h15
+  " set guifont=Ubuntu\ Mono\ derivative\ Powerline:h15
   " set guifont=Monaco:h15
+  set guifont=Hack:h13
+  set bg=dark
+  colorscheme ir_dark
 endif
 
-colorscheme onedark
 
 
 
@@ -273,7 +276,7 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 " Airline
 let g:airline_powerline_fonts = 1
-" let g:airline_theme = 'tomorrow'
+" let g:airline_theme = 'onedark'
 
 " Press F5 to toggle GUndo tree
 nnoremap <F5> :GundoToggle<CR>
