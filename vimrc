@@ -189,17 +189,19 @@ if has("autocmd")
   autocmd FileType ruby let g:rubycomplete_buffer_loading=1
   autocmd FileType ruby let g:rubycomplete_classes_in_global=1
 
+  " Rpsec.vim
+  au FileType ruby map <Leader>r :call RunCurrentSpecFile()<CR>
+  au FileType ruby map <Leader>s :call RunNearestSpec()<CR>
+  au FileType ruby map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
+
   " Python
   autocmd FileType python setl ts=4 sw=4 sts=4 noet
 
   " Golang
-  " Bind Leader r to run current Go file
   au FileType go nmap <Leader>r <Plug>(go-run)
-  " Bind Leader t to run current Go test suite
   au FileType go nmap <Leader>t <Plug>(go-test)
-  " Bind Leader s to list interfaces for the type under cursor
   au FileType go nmap <Leader>s <Plug>(go-implements)
-  " Bind Leader i to list type info for the type under cursor
   au FileType go nmap <Leader>i <Plug>(go-implements)
   autocmd FileType go setl ts=4 sw=4 sts=4 noet
 
@@ -246,8 +248,9 @@ if has("gui_running")
   " set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline:h15
   " set guifont=Source\ Code\ Pro\ for\ Powerline:h15
   " set guifont=Ubuntu\ Mono\ derivative\ Powerline:h15
-  " set guifont=Monaco:h15
-  set guifont=Hack:h13
+  set guifont=Monacob:h13
+  " set guifont=Hack:h13
+  set linespace=1
   set bg=dark
   colorscheme ir_dark
 endif
@@ -275,8 +278,9 @@ let g:ctrlp_use_caching = 1
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 " Airline
-let g:airline_powerline_fonts = 1
-" let g:airline_theme = 'onedark'
+" let g:airline_powerline_fonts = 1
+let g:Powerline_symbols = 'fancy'
+let g:airline_theme = 'onedark'
 
 " Press F5 to toggle GUndo tree
 nnoremap <F5> :GundoToggle<CR>
@@ -309,11 +313,6 @@ if exists(":Tab")
   vmap <leader>a: :Tab /:\zs<CR>
 endif
 
-" Rpsec.vim
-map <Leader>r :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-" map <Leader>a :call RunAllSpecs()<CR>
 let g:rspec_runner = "os_x_iterm"
 
 " When vimrc, either directly or via symlink, is edited, automatically reload it
