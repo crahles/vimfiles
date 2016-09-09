@@ -252,7 +252,7 @@ if has("gui_running")
   " set guifont=Hack:h13
   set linespace=1
   set bg=dark
-  colorscheme ir_dark
+  colorscheme solarized
 endif
 
 
@@ -280,7 +280,6 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 " Airline
 " let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
-let g:airline_theme = 'onedark'
 
 " Press F5 to toggle GUndo tree
 nnoremap <F5> :GundoToggle<CR>
