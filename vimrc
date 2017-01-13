@@ -15,12 +15,35 @@ set history=1000
 set autoread
 
 
+ " Disable AutoComplPop.
+ let g:acp_enableAtStartup = 0
+ " Use neocomplete.
+ let g:neocomplete#enable_at_startup = 1
+ " Use smartcase.
+ let g:neocomplete#enable_smart_case = 1
+ " Set minimum syntax keyword length.
+ let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+ " Enable omni completion.
+ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags "
+
+  " Go related mappings
+ au FileType go nmap <Leader>i <Plug>(go-info)
+ au FileType go nmap <Leader>gd <Plug>(go-doc)
+ au FileType go nmap <Leader>r <Plug>(go-run)
+ au FileType go nmap <Leader>b <Plug>(go-build)
+ au FileType go nmap <Leader>t <Plug>(go-test)
+ au FileType go nmap gd <Plug>(go-def-tab)
 
 "  ---------------------------------------------------------------------------
 "	 AUTOCOMPLETE
 "  ---------------------------------------------------------------------------
 set completeopt=menu,longest
-" set omnifunc=syntaxcomplete#Complete
+set omnifunc=syntaxcomplete#Complete
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
       \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
@@ -69,8 +92,6 @@ set textwidth=79
 set formatoptions=n
 set nofoldenable
 
-" check to make sure vim has been compiled with colorcolumn support
-" before enabling it
 if exists("+colorcolumn")
   set colorcolumn=80
 endif
@@ -139,12 +160,6 @@ set wildignore+=**/build/**,**/target/**,**/cms-assets/**,**/tmp/**,**/vendor/**
 set wildignore+=**/node_modules/**,**/bower_components/**
 set wildignore+=**/doc/**,**/cache*/**
 
-" Set a lower priority for .old files
-set suffixes+=.old
-
-" rvm-vim automatically as you switch from buffer to buffer
-":autocmd BufEnter * Rvm
-
 if exists(":Tabularize")
   nmap <Leader>v= :Tabularize /=<CR>
   vmap <Leader>v= :Tabularize /=<CR>
@@ -164,12 +179,6 @@ let Tlist_Ctags_Cmd = 'ctags'
 " https://rvm.beginrescueend.com/integration/vim/
 set shell=/bin/sh
 
-" Finally, load custom configs
-if filereadable($HOME . '.vimrc.local')
-  source ~/.vimrc.local
-endif
-
-
 "Golang
 " Automatically import packages on file save
 let g:go_fmt_command = "goimports"
@@ -186,14 +195,12 @@ if has("autocmd")
   au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=ruby
 
   autocmd FileType ruby set omnifunc=rubycomplete#Complete
-  autocmd FileType ruby let g:rubycomplete_buffer_loading=1
-  autocmd FileType ruby let g:rubycomplete_classes_in_global=1
-
-  " Rpsec.vim
-  au FileType ruby map <Leader>r :call RunCurrentSpecFile()<CR>
-  au FileType ruby map <Leader>s :call RunNearestSpec()<CR>
-  au FileType ruby map <Leader>l :call RunLastSpec()<CR>
-" map <Leader>a :call RunAllSpecs()<CR>
+  autocmd FileType ruby let g:rubycomplete_buffer_loading = 1
+  autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
+  autocmd FileType ruby let g:rubycomplete_rails = 1
+  autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
+  highlight def link rubyRspec Function
+  " au FileType ruby map <Leader>r :RuboCop -a<CR>
 
   " Python
   autocmd FileType python setl ts=4 sw=4 sts=4 noet
@@ -204,6 +211,9 @@ if has("autocmd")
   au FileType go nmap <Leader>s <Plug>(go-implements)
   au FileType go nmap <Leader>i <Plug>(go-implements)
   autocmd FileType go setl ts=4 sw=4 sts=4 noet
+
+  " Typescript
+  au BufRead,BufNewFile *.ts  set filetype=typescript
 
   " CoffeeScript
   let coffee_compile_vert = 1
@@ -217,9 +227,8 @@ if has("autocmd")
   au BufRead,BufNewFile *.scss set filetype=scss
   autocmd BufNewFile, BufRead *.html.erb set filetype=html.erb
 
-  autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
-  highlight def link rubyRspec Function
 endif
+
 
 
 "  ---------------------------------------------------------------------------
@@ -229,7 +238,9 @@ endif
 "  ---------------------------------------------------------------------------
 "   MacVIM / Gvim / Terminal vim setting
 "  ---------------------------------------------------------------------------
-colorscheme jellybeans
+" let g:airline_theme='one'
+
+
 if has("gui_running")
   set guioptions-=T " no toolbar set guioptions-=m " no menus
   set guioptions-=r " no scrollbar on the right
@@ -239,21 +250,14 @@ if has("gui_running")
   set guioptions=aiA
 
   " Fonts
-  " set guifont=Anonymous\ Pro\ for\ Powerline\ 11
-  " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
-  " set guifont=Roboto\ Mono\ for\ Powerline:h13
-  " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 14
-  " set guifont=Inconsolata-g\ for\ Powerline:h13
-  " set guifont=LiberationMono\ for\ Powerline\ 10
-  " set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline:h15
-  " set guifont=Source\ Code\ Pro\ for\ Powerline:h15
-  " set guifont=Ubuntu\ Mono\ derivative\ Powerline:h15
-  set guifont=Monacob:h13
-  " set guifont=Hack:h13
-  set linespace=1
-  set bg=dark
-  colorscheme solarized
+  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
+  " set guifont=Monacob2:h13
+  set linespace=3
+  colorscheme ir_dark
+else
+  colorscheme default
 endif
+
 
 
 
@@ -262,7 +266,7 @@ endif
 "  ---------------------------------------------------------------------------
 "  Plugins
 "  ---------------------------------------------------------------------------
-
+"
 " eradicate all trailing whitespace all the time
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
@@ -275,7 +279,7 @@ let g:AutoCloseProtectedRegions = ["Character"]
 nmap <leader>f :CtrlP<cr>
 " let g:ctrlp_user_command = 'ag %s -l --nocolor --ignore node_modules --ignore DS_Store --ignore git --ignore public/assets --ignore public/cached-assets --ignore public/cms-assets --ignore public/assets/source_maps --ignore doc --ignore public/uploads -g ""'
 let g:ctrlp_use_caching = 1
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 " Airline
 " let g:airline_powerline_fonts = 1
@@ -283,10 +287,6 @@ let g:Powerline_symbols = 'fancy'
 
 " Press F5 to toggle GUndo tree
 nnoremap <F5> :GundoToggle<CR>
-
-" indent file and return cursor and center cursor
-map   <silent> <F6> mmgg=G`m^zz
-imap  <silent> <F6> <Esc> mmgg=G`m^zz
 
 " Add settings for tabular
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
@@ -301,18 +301,6 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
-
-" Tabularize
-if exists(":Tab")
-  nmap <leader>a\| :Tab /\|<CR>
-  vmap <leader>a\| :Tab /\|<CR>
-  nmap <leader>a= :Tab /=<CR>
-  vmap <leader>a= :Tab /=<CR>
-  nmap <leader>a: :Tab /:\zs<CR>
-  vmap <leader>a: :Tab /:\zs<CR>
-endif
-
-let g:rspec_runner = "os_x_iterm"
 
 " When vimrc, either directly or via symlink, is edited, automatically reload it
 autocmd! bufwritepost .vimrc source %
