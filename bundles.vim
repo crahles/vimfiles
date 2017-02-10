@@ -10,6 +10,8 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+Bundle 'digitaltoad/vim-pug'
+
 " Tools
 Bundle 'Townk/vim-autoclose.git'
 
@@ -28,6 +30,8 @@ Bundle 'tomtom/tcomment_vim.git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround.git'
 
+Bundle 'rstacruz/sparkup'
+
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 
@@ -43,12 +47,14 @@ Bundle 'twerth/ir_black'
 " Bundle 'rakr/vim-one'
 
 " Language Support
-" Bundle 'burnettk/vim-angular'
+Bundle 'burnettk/vim-angular'
 Bundle 'cakebaker/scss-syntax.vim.git'
 Bundle 'fatih/vim-go.git'
 Bundle 'kchmck/vim-coffee-script.git'
 
-" Bundle 'leafgarland/typescript-vim'
+Bundle 'leafgarland/typescript-vim'
+Bundle 'Quramy/tsuquyomi'
+Bundle 'Shougo/vimproc.vim'
 Bundle 'tpope/vim-haml.git'
 "Bundle 'tpope/vim-markdown.git'
 
