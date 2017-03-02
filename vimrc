@@ -15,6 +15,14 @@ set history=1000
 set autoread
 
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
+
  " Disable AutoComplPop.
  let g:acp_enableAtStartup = 0
  " Use neocomplete.
@@ -26,12 +34,13 @@ set autoread
 
  let g:SuperTabDefaultCompletionType = "<c-n>"
 
- " Enable omni completion.
- autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
- autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
- autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
- autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
- autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags "
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags "
+
 let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
 autocmd QuickFixCmdPost [^l]* nested cwindow
