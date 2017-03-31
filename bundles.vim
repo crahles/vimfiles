@@ -38,13 +38,15 @@ Bundle 'vim-airline/vim-airline-themes'
 Bundle 'vim-scripts/DeleteTrailingWhitespace.git'
 Bundle 'vim-scripts/closetag.vim'
 
-
 " colorschemes
-" Bundle 'altercation/vim-colors-solarized.git'
+Bundle 'chriskempson/base16-vim'
+Bundle 'altercation/vim-colors-solarized.git'
+Bundle 'tomasiser/vim-code-dark'
 " Bundle 'nanotech/jellybeans.vim.git'
-" Bundle 'therealechan/vim-railscasts-theme.git'
+Bundle 'therealechan/vim-railscasts-theme.git'
 Bundle 'twerth/ir_black'
-" Bundle 'rakr/vim-one'
+Bundle 'rakr/vim-one'
+Bundle 'rakr/vim-two-firewatch'
 
 " Language Support
 Bundle 'burnettk/vim-angular'
@@ -55,8 +57,9 @@ Bundle 'kchmck/vim-coffee-script.git'
 Bundle 'leafgarland/typescript-vim'
 Bundle 'Quramy/tsuquyomi'
 Bundle 'Shougo/vimproc.vim'
+
 Bundle 'tpope/vim-haml.git'
-"Bundle 'tpope/vim-markdown.git'
+Bundle 'tpope/vim-markdown.git'
 
 Bundle 'tpope/vim-rails.git'
 Bundle 'vim-ruby/vim-ruby.git'
