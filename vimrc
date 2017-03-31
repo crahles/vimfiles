@@ -265,9 +265,9 @@ if has("gui_running")
   set guioptions=aiA
 
   " Fonts
-  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
-  " set guifont=Monacob2:h13
-  set linespace=3
+  " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
+  set guifont=Monacob2:h13
+  set linespace=2
   colorscheme ir_dark
 else
   colorscheme default
