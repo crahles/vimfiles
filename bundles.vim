@@ -54,7 +54,9 @@ Bundle 'cakebaker/scss-syntax.vim.git'
 Bundle 'fatih/vim-go.git'
 Bundle 'kchmck/vim-coffee-script.git'
 
-Bundle 'leafgarland/typescript-vim'
+" Bundle 'leafgarland/typescript-vim'
+Bundle 'HerringtonDarkholme/yats.vim'
+
 Bundle 'Quramy/tsuquyomi'
 Bundle 'Shougo/vimproc.vim'
 
