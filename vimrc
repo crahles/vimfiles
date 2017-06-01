@@ -41,6 +41,8 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags "
 
+autocmd FileType ruby compiler ruby
+
 let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
 autocmd QuickFixCmdPost [^l]* nested cwindow
@@ -201,6 +203,12 @@ let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+let g:go_hightlight_extra_types = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:syntastic_go_checkers = ['go', 'govet', 'errcheck']
+
+
 
 "  ---------------------------------------------------------------------------
 "  Language Mappings
@@ -253,7 +261,6 @@ endif
 "  ---------------------------------------------------------------------------
 "   MacVIM / Gvim / Terminal vim setting
 "  ---------------------------------------------------------------------------
-" let g:airline_theme='one'
 
 
 if has("gui_running")
@@ -264,13 +271,13 @@ if has("gui_running")
   set guioptions-=b " no scrollbar on the bottom
   set guioptions=aiA
 
-  " Fonts
-  " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
-  set guifont=Monacob2:h13
+  " set guifont=Monacob2:h13
+  set guifont=Roboto\ Mono\ for\ Powerline:h15
   set linespace=2
-  colorscheme ir_dark
+  " colorscheme base16-materia
+  colorscheme base16-google-light
 else
-  colorscheme default
+  colorscheme codedark
 endif
 
 
