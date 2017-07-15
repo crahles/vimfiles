@@ -20,13 +20,13 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
+" let g:tsuquyomi_disable_quickfix = 1
+" let g:syntastic_typescript_checkers = ['tsuquyomi']
 
  " Disable AutoComplPop.
  let g:acp_enableAtStartup = 0
  " Use neocomplete.
- let g:neocomplete#enable_at_startup = 1
+"  let g:neocomplete#enable_at_startup = 1
  " Use smartcase.
  let g:neocomplete#enable_smart_case = 1
  " Set minimum syntax keyword length.
@@ -37,14 +37,14 @@ let g:syntastic_typescript_checkers = ['tsuquyomi']
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags "
 
 autocmd FileType ruby compiler ruby
 
-let g:typescript_compiler_binary = 'tsc'
-let g:typescript_compiler_options = ''
+" let g:typescript_compiler_binary = 'tsc'
+" let g:typescript_compiler_options = ''
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
@@ -217,7 +217,7 @@ if has("autocmd")
   " Other files to consider Ruby
   au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=ruby
 
-  autocmd FileType ruby set omnifunc=rubycomplete#Complete
+  " autocmd FileType ruby set omnifunc=rubycomplete#Complete
   autocmd FileType ruby let g:rubycomplete_buffer_loading = 1
   autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
   autocmd FileType ruby let g:rubycomplete_rails = 1
@@ -271,11 +271,14 @@ if has("gui_running")
   set guioptions-=b " no scrollbar on the bottom
   set guioptions=aiA
 
-  " set guifont=Monacob2:h13
+  " set guifont=Monacob2:h15
   set guifont=Roboto\ Mono\ for\ Powerline:h15
-  set linespace=2
+  " set guifont=Menlo:h15
+  set linespace=3
   " colorscheme base16-materia
-  colorscheme base16-google-light
+  colorscheme solarized
+  " colorscheme nord
+  set bg=dark
 else
   colorscheme codedark
 endif

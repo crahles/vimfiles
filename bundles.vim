@@ -11,9 +11,12 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'digitaltoad/vim-pug'
+Bundle 'arcticicestudio/nord-vim'
+Bundle 'w0ng/vim-hybrid'
 
 " Tools
 Bundle 'Townk/vim-autoclose.git'
+" Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'ervandew/supertab.git'
 
@@ -42,7 +45,7 @@ Bundle 'vim-scripts/closetag.vim'
 Bundle 'chriskempson/base16-vim'
 Bundle 'altercation/vim-colors-solarized.git'
 Bundle 'tomasiser/vim-code-dark'
-" Bundle 'nanotech/jellybeans.vim.git'
+Bundle 'nanotech/jellybeans.vim.git'
 Bundle 'therealechan/vim-railscasts-theme.git'
 Bundle 'twerth/ir_black'
 Bundle 'rakr/vim-one'
@@ -58,7 +61,7 @@ Bundle 'kchmck/vim-coffee-script.git'
 Bundle 'HerringtonDarkholme/yats.vim'
 
 Bundle 'Quramy/tsuquyomi'
-Bundle 'Shougo/vimproc.vim'
+" Bundle 'Shougo/vimproc.vim'
 
 Bundle 'tpope/vim-haml.git'
 Bundle 'tpope/vim-markdown.git'
