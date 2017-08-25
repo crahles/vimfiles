@@ -1,8 +1,9 @@
 silent! runtime bundles.vim
 runtime plugins/bclose.vim
-"  ---------------------------------------------------------------------------
+
+"#############################################################################
 "  General
-"  ---------------------------------------------------------------------------
+"#############################################################################
 filetype plugin indent on
 let mapleader = ","
 let g:mapleader = ","
@@ -14,51 +15,54 @@ set noswapfile
 set history=1000
 set autoread
 
-
-set statusline+=%#warningmsg#
+set statusline=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+"#############################################################################
+" Typescript support
+"#############################################################################
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" let g:tsuquyomi_disable_quickfix = 1
-" let g:syntastic_typescript_checkers = ['tsuquyomi']
+
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
+
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
 
  " Disable AutoComplPop.
- let g:acp_enableAtStartup = 0
+let g:acp_enableAtStartup = 0
+
  " Use neocomplete.
-"  let g:neocomplete#enable_at_startup = 1
+ " let g:neocomplete#enable_at_startup = 1
+
  " Use smartcase.
- let g:neocomplete#enable_smart_case = 1
+"  let g:neocomplete#enable_smart_case = 1
  " Set minimum syntax keyword length.
- let g:neocomplete#sources#syntax#min_keyword_length = 3
+"  let g:neocomplete#sources#syntax#min_keyword_length = 3
 
- let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags "
 
-autocmd FileType ruby compiler ruby
-
-" let g:typescript_compiler_binary = 'tsc'
-" let g:typescript_compiler_options = ''
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
-  " Go related mappings
- au FileType go nmap <Leader>i <Plug>(go-info)
- au FileType go nmap <Leader>gd <Plug>(go-doc)
- au FileType go nmap <Leader>r <Plug>(go-run)
- au FileType go nmap <Leader>b <Plug>(go-build)
- au FileType go nmap <Leader>t <Plug>(go-test)
- au FileType go nmap gd <Plug>(go-def-tab)
+"#############################################################################
+" Golang support
+"#############################################################################
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>r <Plug>(go-run)
+au FileType go nmap <Leader>b <Plug>(go-build)
+au FileType go nmap <Leader>t <Plug>(go-test)
+au FileType go nmap gd <Plug>(go-def-tab)
 
+"#############################################################################
 "  ---------------------------------------------------------------------------
 "	 AUTOCOMPLETE
 "  ---------------------------------------------------------------------------
+"#############################################################################
 set completeopt=menu,longest
 set omnifunc=syntaxcomplete#Complete
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -67,9 +71,19 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
       \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+
+autocmd FileType ruby compiler ruby
+
+"#############################################################################
 "  ---------------------------------------------------------------------------
 "  UI
 "  ---------------------------------------------------------------------------
+"#############################################################################
 set title
 set encoding=utf-8
 set scrolloff=3
@@ -96,9 +110,11 @@ set winheight=5
 set winminheight=5
 set splitbelow splitright
 
+"#############################################################################
 "  ---------------------------------------------------------------------------
 "  Text Formatting
 "  ---------------------------------------------------------------------------
+"#############################################################################
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -114,12 +130,11 @@ if exists("+colorcolumn")
 endif
 
 
+"#############################################################################
 "  ---------------------------------------------------------------------------
 "  Mappings
 "  ---------------------------------------------------------------------------
-" Turn off arrow keys (this might not be a good idea for beginners, but it is
-" the best way to ween yourself of arrow keys on to hjkl)
-" http://yehudakatz.com/2010/07/29/everyone-who-tried-to-convince-me-to-use-vim-was-wrong/
+"#############################################################################
 
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
@@ -171,23 +186,26 @@ nmap <leader>d :Bclose<CR>
 " close all buffers
 nmap <leader>D :bufdo bd<CR>
 
-" Ignore some binary, versioning and backup files when auto-completing
-set wildignore=.svn,CVS,.git,*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak
-set wildignore+=**/build/**,**/target/**,**/cms-assets/**,**/tmp/**,**/vendor/**
-set wildignore+=**/node_modules/**,**/bower_components/**
-set wildignore+=**/doc/**,**/cache*/**
-
 if exists(":Tabularize")
   nmap <Leader>v= :Tabularize /=<CR>
   vmap <Leader>v= :Tabularize /=<CR>
   nmap <Leader>v: :Tabularize /:\zs<CR>
   vmap <Leader>v: :Tabularize /:\zs<CR>
 endif
+
+"#############################################################################
 "  ---------------------------------------------------------------------------
 "  Directories
 "  ---------------------------------------------------------------------------
+"#############################################################################
 set backupdir=~/tmp,/tmp
 set undodir=~/.vim/.tmp,~/tmp,~/.tmp,/tmp
+
+" Ignore some binary, versioning and backup files when auto-completing
+set wildignore=.svn,CVS,.git,*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak
+set wildignore+=**/build/**,**/target/**,**/cms-assets/**,**/tmp/**,**/vendor/**
+set wildignore+=**/node_modules/**,**/bower_components/**
+set wildignore+=**/doc/**,**/cache*/**
 
 " Ctags path (brew install ctags)
 let Tlist_Ctags_Cmd = 'ctags'
@@ -196,9 +214,12 @@ let Tlist_Ctags_Cmd = 'ctags'
 " https://rvm.beginrescueend.com/integration/vim/
 set shell=/bin/sh
 
+
 "Golang
+
 " Automatically import packages on file save
 let g:go_fmt_command = "goimports"
+
 " Syntax highlight Functions, Methods, and Structs
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -207,7 +228,6 @@ let g:go_hightlight_extra_types = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:syntastic_go_checkers = ['go', 'govet', 'errcheck']
-
 
 
 "  ---------------------------------------------------------------------------
@@ -224,6 +244,7 @@ if has("autocmd")
   autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
   highlight def link rubyRspec Function
   " au FileType ruby map <Leader>r :RuboCop -a<CR>
+  autocmd BufNewFile,BufRead *_spec.rb set filetype=rspec
 
   " Python
   autocmd FileType python setl ts=4 sw=4 sts=4 noet
@@ -237,6 +258,8 @@ if has("autocmd")
 
   " Typescript
   au BufRead,BufNewFile *.ts  set filetype=typescript
+  autocmd FileType typescript setlocal completeopt-=menu,preview
+  let g:tsuquyomi_completion_detail = 1
 
   " CoffeeScript
   let coffee_compile_vert = 1
@@ -249,19 +272,11 @@ if has("autocmd")
   au BufNewFile,BufReadPost *.sass setl foldmethod=indent
   au BufRead,BufNewFile *.scss set filetype=scss
   autocmd BufNewFile, BufRead *.html.erb set filetype=html.erb
-
 endif
-
-
-
-"  ---------------------------------------------------------------------------
-"  Colors
-"  ---------------------------------------------------------------------------
 
 "  ---------------------------------------------------------------------------
 "   MacVIM / Gvim / Terminal vim setting
 "  ---------------------------------------------------------------------------
-
 
 if has("gui_running")
   set guioptions-=T " no toolbar set guioptions-=m " no menus
@@ -271,28 +286,20 @@ if has("gui_running")
   set guioptions-=b " no scrollbar on the bottom
   set guioptions=aiA
 
-  " set guifont=Monacob2:h15
-  set guifont=Roboto\ Mono\ for\ Powerline:h15
-  " set guifont=Menlo:h15
+  " set guifont=Roboto\ Mono\ for\ Powerline:h15
+  colorscheme codedark
+  set guifont=Monacob2:h15
   set linespace=3
-  " colorscheme base16-materia
-  colorscheme solarized
-  " colorscheme nord
-  set bg=dark
+  " let g:airline_powerline_fonts = 1
 else
   colorscheme codedark
 endif
 
-
-
-
-
-
 "  ---------------------------------------------------------------------------
 "  Plugins
 "  ---------------------------------------------------------------------------
-"
-" eradicate all trailing whitespace all the time
+
+" vim-scripts/DeleteTrailingWhitespace.git
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
 
@@ -307,7 +314,6 @@ let g:ctrlp_use_caching = 1
 " let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 " Airline
-" let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
 
 " Press F5 to toggle GUndo tree
@@ -315,17 +321,6 @@ nnoremap <F5> :GundoToggle<CR>
 
 " Add settings for tabular
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
 
 " When vimrc, either directly or via symlink, is edited, automatically reload it
 autocmd! bufwritepost .vimrc source %

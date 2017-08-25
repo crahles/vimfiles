@@ -10,12 +10,14 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-Bundle 'digitaltoad/vim-pug'
-Bundle 'arcticicestudio/nord-vim'
-Bundle 'w0ng/vim-hybrid'
-
+"#############################################################################
+"  ---------------------------------------------------------------------------
 " Tools
+"  ---------------------------------------------------------------------------
+"#############################################################################
 Bundle 'Townk/vim-autoclose.git'
+
+" A code-completion engine for vim
 " Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'ervandew/supertab.git'
@@ -33,6 +35,7 @@ Bundle 'tomtom/tcomment_vim.git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround.git'
 
+" HTML completion with C-e (write haml style and transform to html)
 Bundle 'rstacruz/sparkup'
 
 Bundle 'vim-airline/vim-airline'
@@ -41,26 +44,36 @@ Bundle 'vim-airline/vim-airline-themes'
 Bundle 'vim-scripts/DeleteTrailingWhitespace.git'
 Bundle 'vim-scripts/closetag.vim'
 
+"#############################################################################
+"  ---------------------------------------------------------------------------
 " colorschemes
-Bundle 'chriskempson/base16-vim'
+"  ---------------------------------------------------------------------------
+"#############################################################################
 Bundle 'altercation/vim-colors-solarized.git'
 Bundle 'tomasiser/vim-code-dark'
-Bundle 'nanotech/jellybeans.vim.git'
-Bundle 'therealechan/vim-railscasts-theme.git'
 Bundle 'twerth/ir_black'
 Bundle 'rakr/vim-one'
-Bundle 'rakr/vim-two-firewatch'
 
+"#############################################################################
+"  ---------------------------------------------------------------------------
 " Language Support
-Bundle 'burnettk/vim-angular'
+"  ---------------------------------------------------------------------------
+"#############################################################################
 Bundle 'cakebaker/scss-syntax.vim.git'
 Bundle 'fatih/vim-go.git'
 Bundle 'kchmck/vim-coffee-script.git'
+Bundle 'digitaltoad/vim-pug'
+Bundle 'keith/rspec.vim'
 
-" Bundle 'leafgarland/typescript-vim'
+
+" More Highlighting for typescript
 Bundle 'HerringtonDarkholme/yats.vim'
 
-Bundle 'Quramy/tsuquyomi'
+" Typescript syntax highlighting
+Bundle 'leafgarland/typescript-vim'
+
+" typescript IDE for vim
+" Bundle 'Quramy/tsuquyomi'
 " Bundle 'Shougo/vimproc.vim'
 
 Bundle 'tpope/vim-haml.git'
