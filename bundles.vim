@@ -24,7 +24,7 @@ Bundle 'ervandew/supertab.git'
 
 Bundle 'godlygeek/tabular.git'
 
-Bundle 'kien/ctrlp.vim.git'
+Bundle 'ctrlpvim/ctrlp.vim'
 
 Bundle 'rking/ag.vim.git'
 
