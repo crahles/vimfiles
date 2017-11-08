@@ -1,5 +1,91 @@
-silent! runtime bundles.vim
-runtime plugins/bclose.vim
+call plug#begin('~/.config/nvim/plugged')
+Plug 'gmarik/vundle'
+
+"#############################################################################
+"  ---------------------------------------------------------------------------
+" Tools
+"  ---------------------------------------------------------------------------
+"#############################################################################
+Plug 'Townk/vim-autoclose'
+
+" A code-completion engine for vim
+" Plug 'Valloric/YouCompleteMe'
+
+Plug 'ervandew/supertab'
+
+Plug 'godlygeek/tabular'
+
+Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'rking/ag.vim'
+
+Plug 'scrooloose/syntastic'
+
+" Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
+
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+
+" HTML completion with C-e (write haml style and transform to html)
+Plug 'rstacruz/sparkup'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'vim-scripts/DeleteTrailingWhitespace'
+Plug 'vim-scripts/closetag.vim'
+
+"#############################################################################
+"  ---------------------------------------------------------------------------
+" colorschemes
+"  ---------------------------------------------------------------------------
+"#############################################################################
+Plug 'endel/vim-github-colorscheme'
+Plug 'altercation/vim-colors-solarized'
+Plug 'arcticicestudio/nord-vim'
+Plug 'tomasiser/vim-code-dark'
+Plug 'twerth/ir_black'
+Plug 'rakr/vim-one'
+Plug 'KeitaNakamura/neodark.vim'
+Plug 'nanotech/jellybeans.vim'
+
+"#############################################################################
+"  ---------------------------------------------------------------------------
+" Language Support
+"  ---------------------------------------------------------------------------
+"#############################################################################
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'fatih/vim-go'
+Plug 'kchmck/vim-coffee-script'
+Plug 'digitaltoad/vim-pug'
+Plug 'keith/rspec.vim'
+Plug 'amadeus/vim-mjml'
+
+
+" More Highlighting for typescript
+Plug 'HerringtonDarkholme/yats.vim'
+
+" Typescript syntax highlighting
+Plug 'leafgarland/typescript-vim'
+
+" typescript IDE for vim
+" Plug 'Quramy/tsuquyomi'
+" Plug 'Shougo/vimproc.vim'
+
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/jQuery'
+Plug 'vim-scripts/SyntaxComplete'
+
+Plug 'Shougo/neocomplete'
+
+call plug#end()
+
+
 
 "#############################################################################
 "  General
@@ -31,17 +117,7 @@ let g:syntastic_typescript_checkers = ['tsuquyomi']
 let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
 
- " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
-
- " Use neocomplete.
- " let g:neocomplete#enable_at_startup = 1
-
- " Use smartcase.
-"  let g:neocomplete#enable_smart_case = 1
- " Set minimum syntax keyword length.
-"  let g:neocomplete#sources#syntax#min_keyword_length = 3
-
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 
@@ -187,10 +263,10 @@ nmap <leader>d :Bclose<CR>
 nmap <leader>D :bufdo bd<CR>
 
 if exists(":Tabularize")
-  nmap <Leader>v= :Tabularize /=<CR>
-  vmap <Leader>v= :Tabularize /=<CR>
-  nmap <Leader>v: :Tabularize /:\zs<CR>
-  vmap <Leader>v: :Tabularize /:\zs<CR>
+  nmap <Leader>g= :Tabularize /=<CR>
+  vmap <Leader>g= :Tabularize /=<CR>
+  nmap <Leader>g: :Tabularize /:\zs<CR>
+  vmap <Leader>g: :Tabularize /:\zs<CR>
 endif
 
 "#############################################################################
@@ -286,11 +362,14 @@ if has("gui_running")
   set guioptions-=b " no scrollbar on the bottom
   set guioptions=aiA
 
-  " set guifont=Roboto\ Mono\ for\ Powerline:h15
   colorscheme codedark
-  set guifont=Monacob2:h15
-  set linespace=3
-  " let g:airline_powerline_fonts = 1
+  " set guifont=Monacob2:h16
+  " set guifont=Roboto\ mono\ for\ powerline:h16
+  " set guifont=Dejavu\ Sans\ mono\ for\ powerline:h16
+  set guifont=Hack:h15
+  set linespace=1
+  set bg=dark
+  let g:airline_powerline_fonts = 0
 else
   colorscheme codedark
 endif
@@ -320,7 +399,7 @@ let g:Powerline_symbols = 'fancy'
 nnoremap <F5> :GundoToggle<CR>
 
 " Add settings for tabular
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+" inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 " When vimrc, either directly or via symlink, is edited, automatically reload it
 autocmd! bufwritepost .vimrc source %
