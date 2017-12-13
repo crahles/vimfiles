@@ -1,4 +1,4 @@
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 Plug 'gmarik/vundle'
 
 "#############################################################################
@@ -49,6 +49,8 @@ Plug 'twerth/ir_black'
 Plug 'rakr/vim-one'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'nanotech/jellybeans.vim'
+Plug 'dracula/vim'
+Plug 'therealechan/vim-railscasts-theme'
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -341,8 +343,6 @@ if has("autocmd")
   let coffee_compile_vert = 1
   au BufNewFile,BufReadPost *.coffee setl foldmethod=indent
 
-  autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
-
   " SASS / SCSS
   au BufNewFile,BufReadPost *.scss setl foldmethod=indent
   au BufNewFile,BufReadPost *.sass setl foldmethod=indent
@@ -362,16 +362,38 @@ if has("gui_running")
   set guioptions-=b " no scrollbar on the bottom
   set guioptions=aiA
 
-  colorscheme codedark
   " set guifont=Monacob2:h16
   " set guifont=Roboto\ mono\ for\ powerline:h16
   " set guifont=Dejavu\ Sans\ mono\ for\ powerline:h16
   set guifont=Hack:h15
   set linespace=1
   set bg=dark
-  let g:airline_powerline_fonts = 0
 else
-  colorscheme codedark
+
+  "Credit joshdick
+  "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+  "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+  "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+  if (empty($TMUX))
+    if (has("nvim"))
+      "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+      let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    endif
+    "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+    "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+    " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+    if (has("termguicolors"))
+      set termguicolors
+    endif
+  endif
+
+  set bg=dark
+
+  colorscheme dracula
+
+  let g:airline_theme='dracula'
+  let g:airline_powerline_fonts = 1
+
 endif
 
 "  ---------------------------------------------------------------------------
