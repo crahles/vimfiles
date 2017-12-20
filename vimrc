@@ -24,6 +24,7 @@ Plug 'scrooloose/syntastic'
 " Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-commentary'
 
+
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
@@ -41,9 +42,9 @@ Plug 'vim-scripts/closetag.vim'
 " colorschemes
 "  ---------------------------------------------------------------------------
 "#############################################################################
+Plug 'google/vim-colorscheme-primary'
 Plug 'endel/vim-github-colorscheme'
 Plug 'altercation/vim-colors-solarized'
-Plug 'arcticicestudio/nord-vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'twerth/ir_black'
 Plug 'rakr/vim-one'
@@ -122,7 +123,6 @@ let g:typescript_compiler_options = ''
 let g:acp_enableAtStartup = 0
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
-
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
@@ -135,6 +135,18 @@ au FileType go nmap <Leader>r <Plug>(go-run)
 au FileType go nmap <Leader>b <Plug>(go-build)
 au FileType go nmap <Leader>t <Plug>(go-test)
 au FileType go nmap gd <Plug>(go-def-tab)
+
+" Automatically import packages on file save
+let g:go_fmt_command = "goimports"
+
+" Syntax highlight Functions, Methods, and Structs
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_hightlight_extra_types = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:syntastic_go_checkers = ['go', 'govet', 'errcheck']
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -293,19 +305,6 @@ let Tlist_Ctags_Cmd = 'ctags'
 set shell=/bin/sh
 
 
-"Golang
-
-" Automatically import packages on file save
-let g:go_fmt_command = "goimports"
-
-" Syntax highlight Functions, Methods, and Structs
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_hightlight_extra_types = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:syntastic_go_checkers = ['go', 'govet', 'errcheck']
 
 
 "  ---------------------------------------------------------------------------
@@ -315,12 +314,14 @@ if has("autocmd")
   " Other files to consider Ruby
   au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=ruby
 
+  " Ruby
   " autocmd FileType ruby set omnifunc=rubycomplete#Complete
   autocmd FileType ruby let g:rubycomplete_buffer_loading = 1
   autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
   autocmd FileType ruby let g:rubycomplete_rails = 1
   autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
   highlight def link rubyRspec Function
+
   " au FileType ruby map <Leader>r :RuboCop -a<CR>
   autocmd BufNewFile,BufRead *_spec.rb set filetype=rspec
 
@@ -387,11 +388,9 @@ else
     endif
   endif
 
-  set bg=dark
-
   colorscheme dracula
 
-  let g:airline_theme='dracula'
+  " let g:airline_theme='dracula'
   let g:airline_powerline_fonts = 1
 
 endif
@@ -416,9 +415,6 @@ let g:ctrlp_use_caching = 1
 
 " Airline
 let g:Powerline_symbols = 'fancy'
-
-" Press F5 to toggle GUndo tree
-nnoremap <F5> :GundoToggle<CR>
 
 " Add settings for tabular
 " inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
