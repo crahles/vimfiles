@@ -52,6 +52,8 @@ Plug 'KeitaNakamura/neodark.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'dracula/vim'
 Plug 'therealechan/vim-railscasts-theme'
+Plug 'iCyMind/NeoSolarized'
+Plug 'chriskempson/base16-vim'
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -73,8 +75,8 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'leafgarland/typescript-vim'
 
 " typescript IDE for vim
-" Plug 'Quramy/tsuquyomi'
-" Plug 'Shougo/vimproc.vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'Shougo/vimproc.vim'
 
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
@@ -123,20 +125,20 @@ let g:typescript_compiler_options = ''
 let g:acp_enableAtStartup = 0
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
+let g:tsuquyomi_completion_detail = 1
+
+if has("autocmd")
+  au BufRead,BufNewFile *.ts  set filetype=typescript
+  au FileType typescript setlocal completeopt-=menu,preview
+  au FileType typescript setlocal completeopt-=menu
+endif
+
+" autocmd QuickFixCmdPost [^l]* nested cwindow
+" autocmd QuickFixCmdPost    l* nested lwindow
 
 "#############################################################################
 " Golang support
 "#############################################################################
-au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>r <Plug>(go-run)
-au FileType go nmap <Leader>b <Plug>(go-build)
-au FileType go nmap <Leader>t <Plug>(go-test)
-au FileType go nmap gd <Plug>(go-def-tab)
-
-" Automatically import packages on file save
 let g:go_fmt_command = "goimports"
 
 " Syntax highlight Functions, Methods, and Structs
@@ -147,6 +149,36 @@ let g:go_hightlight_extra_types = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:syntastic_go_checkers = ['go', 'govet', 'errcheck']
+
+if has("autocmd")
+  au FileType go nmap <Leader>b <Plug>(go-build)
+  au FileType go nmap <Leader>gd <Plug>(go-doc)
+  au FileType go nmap <Leader>i <Plug>(go-info)
+  au FileType go nmap <Leader>r <Plug>(go-run)
+  au FileType go nmap <Leader>t <Plug>(go-test)
+  au FileType go nmap gd <Plug>(go-def-tab)
+  au FileType go setl ts=4 sw=4 sts=4 noet
+endif
+
+"#############################################################################
+" Ruby support
+"#############################################################################
+if has("autocmd")
+  " Other files to consider Ruby
+  au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=ruby
+
+  " autocmd FileType ruby set omnifunc=rubycomplete#Complete
+  au FileType ruby let g:rubycomplete_buffer_loading = 1
+  au FileType ruby let g:rubycomplete_classes_in_global = 1
+  au FileType ruby let g:rubycomplete_rails = 1
+  au BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
+  highlight def link rubyRspec Function
+
+  " au FileType ruby map <Leader>r :RuboCop -a<CR>
+  au BufNewFile,BufRead *_spec.rb set filetype=rspec
+  au FileType ruby compiler ruby
+endif
+
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -167,7 +199,6 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 " autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
-autocmd FileType ruby compiler ruby
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -304,41 +335,12 @@ let Tlist_Ctags_Cmd = 'ctags'
 " https://rvm.beginrescueend.com/integration/vim/
 set shell=/bin/sh
 
-
-
-
 "  ---------------------------------------------------------------------------
 "  Language Mappings
 "  ---------------------------------------------------------------------------
 if has("autocmd")
-  " Other files to consider Ruby
-  au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=ruby
-
-  " Ruby
-  " autocmd FileType ruby set omnifunc=rubycomplete#Complete
-  autocmd FileType ruby let g:rubycomplete_buffer_loading = 1
-  autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
-  autocmd FileType ruby let g:rubycomplete_rails = 1
-  autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
-  highlight def link rubyRspec Function
-
-  " au FileType ruby map <Leader>r :RuboCop -a<CR>
-  autocmd BufNewFile,BufRead *_spec.rb set filetype=rspec
-
   " Python
   autocmd FileType python setl ts=4 sw=4 sts=4 noet
-
-  " Golang
-  au FileType go nmap <Leader>r <Plug>(go-run)
-  au FileType go nmap <Leader>t <Plug>(go-test)
-  au FileType go nmap <Leader>s <Plug>(go-implements)
-  au FileType go nmap <Leader>i <Plug>(go-implements)
-  autocmd FileType go setl ts=4 sw=4 sts=4 noet
-
-  " Typescript
-  au BufRead,BufNewFile *.ts  set filetype=typescript
-  autocmd FileType typescript setlocal completeopt-=menu,preview
-  let g:tsuquyomi_completion_detail = 1
 
   " CoffeeScript
   let coffee_compile_vert = 1
@@ -363,36 +365,21 @@ if has("gui_running")
   set guioptions-=b " no scrollbar on the bottom
   set guioptions=aiA
 
-  " set guifont=Monacob2:h16
-  " set guifont=Roboto\ mono\ for\ powerline:h16
-  " set guifont=Dejavu\ Sans\ mono\ for\ powerline:h16
-  set guifont=Hack:h15
+  set guifont=Dejavu\ Sans\ mono\ for\ powerline:h16
   set linespace=1
   set bg=dark
 else
-
-  "Credit joshdick
-  "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-  "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-  "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
   if (empty($TMUX))
-    if (has("nvim"))
-      "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-      let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    endif
-    "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-    "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-    " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
     if (has("termguicolors"))
       set termguicolors
     endif
   endif
 
-  colorscheme dracula
-
-  " let g:airline_theme='dracula'
+  set t_Co=256
+  set t_ut=
+  " colorscheme base16-materia
+  colorscheme base16-default-dark
   let g:airline_powerline_fonts = 1
-
 endif
 
 "  ---------------------------------------------------------------------------
