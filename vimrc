@@ -377,8 +377,8 @@ else
 
   set t_Co=256
   set t_ut=
-  " colorscheme base16-materia
-  colorscheme base16-default-dark
+  colorscheme base16-materia
+  " colorscheme base16-default-dark
   let g:airline_powerline_fonts = 1
 endif
 

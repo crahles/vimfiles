@@ -1,6 +1,6 @@
 ## Requirements
 
-Vim 7.3 or better
+Neovim
 Tested on MacOS and Linux
 
 ## Quick Install
@@ -29,36 +29,6 @@ Add `/usr/local/bin` before `/usr/bin` in your `$PATH` so you use the version of
 vim installed by Homebrew, not the one that comes with MacOS.
 
 By installing Vim in this way MacVim and regular Vim are exactly the same.
-
-#### Ubuntu: gVim / Vim
-
-*Server*
-
-    apt-get install vim-nox
-
-*Desktop*
-
-    apt-get install vim-gnome
-
-#### GNU/Linux from source
-
-If you have an old GNU/Linux distro which does not have Vim 7.3 or better in its repos then install from source.
-
-The configure options below leave out any GUI related features as I have only compiled Vim on a server.
-
-Vim source is in a hg (Mercurial) repository so you need to install the hg
-client first, e.g.  `sudo apt-get install mercurial`.
-
-    hg clone https://vim.googlecode.com/hg/ vim
-    cd vim/vim73
-    ./configure
-    ./configure --with-features=huge --enable-cscope --enable-pythoninterp --enable-rubyinterp --enable-perlinterp --enable-multibyte
-    make
-    sudo make install
-
-This installs Vim to `/usr/local/bin,` check this is in your `$PATH` before `/usr/bin` which may contain an older system version of Vim.
-
-If you get an error `no terminal library found` install `libncurses5-dev`.
 
 ### Install these vimfiles
 
