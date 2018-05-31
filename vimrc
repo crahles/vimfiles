@@ -15,6 +15,7 @@ Plug 'ervandew/supertab'
 
 Plug 'godlygeek/tabular'
 
+" TODO replace this with fzf
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'rking/ag.vim'
@@ -24,12 +25,18 @@ Plug 'scrooloose/syntastic'
 " Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-commentary'
 
-
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
 " HTML completion with C-e (write haml style and transform to html)
 Plug 'rstacruz/sparkup'
+
+" Plug 'Yggdroot/indentLine'
+"
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'sheerun/vim-polyglot'
+
+" let g:deoplete#enable_at_startup = 1
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -42,18 +49,12 @@ Plug 'vim-scripts/closetag.vim'
 " colorschemes
 "  ---------------------------------------------------------------------------
 "#############################################################################
-Plug 'google/vim-colorscheme-primary'
-Plug 'endel/vim-github-colorscheme'
-Plug 'altercation/vim-colors-solarized'
-Plug 'tomasiser/vim-code-dark'
+Plug 'therealechan/vim-railscasts-theme'
+Plug 'chriskempson/base16-vim'
+Plug 'dracula/vim'
 Plug 'twerth/ir_black'
 Plug 'rakr/vim-one'
-Plug 'KeitaNakamura/neodark.vim'
-Plug 'nanotech/jellybeans.vim'
-Plug 'dracula/vim'
-Plug 'therealechan/vim-railscasts-theme'
-Plug 'iCyMind/NeoSolarized'
-Plug 'chriskempson/base16-vim'
+Plug 'altercation/vim-colors-solarized'
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -139,18 +140,9 @@ endif
 "#############################################################################
 " Golang support
 "#############################################################################
-let g:go_fmt_command = "goimports"
-
-" Syntax highlight Functions, Methods, and Structs
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_hightlight_extra_types = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:syntastic_go_checkers = ['go', 'govet', 'errcheck']
 
 if has("autocmd")
+  au BufNewFile,BufRead *.go set filetype=go
   au FileType go nmap <Leader>b <Plug>(go-build)
   au FileType go nmap <Leader>gd <Plug>(go-doc)
   au FileType go nmap <Leader>i <Plug>(go-info)
@@ -159,6 +151,22 @@ if has("autocmd")
   au FileType go nmap gd <Plug>(go-def-tab)
   au FileType go setl ts=4 sw=4 sts=4 noet
 endif
+
+let g:go_fmt_command = "goimports"
+
+
+" Syntax highlight Functions, Methods, and Structs
+let g:go_highlight_structs = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_extra_types =1
+let g:go_highlight_functions_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:syntastic_go_checkers = ['go', 'govet', 'errcheck']
 
 "#############################################################################
 " Ruby support
@@ -178,6 +186,12 @@ if has("autocmd")
   au BufNewFile,BufRead *_spec.rb set filetype=rspec
   au FileType ruby compiler ruby
 endif
+
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_rails = 1
+let g:rubycomplete_load_gemfile = 1
+
+let ruby_operators = 1
 
 
 "#############################################################################
@@ -308,10 +322,10 @@ nmap <leader>d :Bclose<CR>
 nmap <leader>D :bufdo bd<CR>
 
 if exists(":Tabularize")
-  nmap <Leader>g= :Tabularize /=<CR>
-  vmap <Leader>g= :Tabularize /=<CR>
-  nmap <Leader>g: :Tabularize /:\zs<CR>
-  vmap <Leader>g: :Tabularize /:\zs<CR>
+  nmap <leader>g= :Tabularize /=<CR>
+  vmap <leader>g= :Tabularize /=<CR>
+  nmap <leader>g: :Tabularize /:\zs<CR>
+  vmap <leader>g: :Tabularize /:\zs<CR>
 endif
 
 "#############################################################################
@@ -342,6 +356,10 @@ if has("autocmd")
   " Python
   autocmd FileType python setl ts=4 sw=4 sts=4 noet
 
+  " mjml
+  au BufRead,BufNewFile *.mjml set filetype=haml
+
+
   " CoffeeScript
   let coffee_compile_vert = 1
   au BufNewFile,BufReadPost *.coffee setl foldmethod=indent
@@ -367,7 +385,6 @@ if has("gui_running")
 
   set guifont=Dejavu\ Sans\ mono\ for\ powerline:h16
   set linespace=1
-  set bg=dark
 else
   if (empty($TMUX))
     if (has("termguicolors"))
@@ -402,6 +419,8 @@ let g:ctrlp_use_caching = 1
 
 " Airline
 let g:Powerline_symbols = 'fancy'
+au CursorHold * checktime
+au FocusGained * checktime
 
 " Add settings for tabular
 " inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
