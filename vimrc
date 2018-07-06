@@ -11,6 +11,8 @@ Plug 'Townk/vim-autoclose'
 " A code-completion engine for vim
 " Plug 'Valloric/YouCompleteMe'
 
+Plug 'brooth/far.vim'
+
 Plug 'ervandew/supertab'
 
 Plug 'godlygeek/tabular'
@@ -55,6 +57,7 @@ Plug 'dracula/vim'
 Plug 'twerth/ir_black'
 Plug 'rakr/vim-one'
 Plug 'altercation/vim-colors-solarized'
+Plug 'tomasiser/vim-code-dark'
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -140,20 +143,7 @@ endif
 "#############################################################################
 " Golang support
 "#############################################################################
-
-if has("autocmd")
-  au BufNewFile,BufRead *.go set filetype=go
-  au FileType go nmap <Leader>b <Plug>(go-build)
-  au FileType go nmap <Leader>gd <Plug>(go-doc)
-  au FileType go nmap <Leader>i <Plug>(go-info)
-  au FileType go nmap <Leader>r <Plug>(go-run)
-  au FileType go nmap <Leader>t <Plug>(go-test)
-  au FileType go nmap gd <Plug>(go-def-tab)
-  au FileType go setl ts=4 sw=4 sts=4 noet
-endif
-
 let g:go_fmt_command = "goimports"
-
 
 " Syntax highlight Functions, Methods, and Structs
 let g:go_highlight_structs = 1
@@ -167,6 +157,18 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:syntastic_go_checkers = ['go', 'govet', 'errcheck']
+
+if has("autocmd")
+  au BufNewFile,BufRead *.go set filetype=go
+  au FileType go nmap <Leader>b <Plug>(go-build)
+  au FileType go nmap <Leader>gd <Plug>(go-doc)
+  au FileType go nmap <Leader>i <Plug>(go-info)
+  au FileType go nmap <Leader>r <Plug>(go-run)
+  au FileType go nmap <Leader>t <Plug>(go-test)
+  au FileType go nmap gd <Plug>(go-def-tab)
+  au FileType go setl ts=4 sw=4 sts=4 noet
+endif
+
 
 "#############################################################################
 " Ruby support
@@ -388,18 +390,15 @@ if has("gui_running")
 else
   if (empty($TMUX))
     if (has("termguicolors"))
-      set termguicolors
+      " set termguicolors
     endif
   endif
 
   " set t_Co=256
   " set t_ut=
 
-  " colorscheme base16-default-dark
-  " colorscheme railscasts
-  colorscheme one
-  " set background=light
-  " colorscheme solarized
+  colorscheme solarized
+  set background=dark
   " let g:airline_theme = 'tomorrow'
 
   let g:airline_powerline_fonts = 1
