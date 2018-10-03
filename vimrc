@@ -111,6 +111,8 @@ set statusline=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+set autowrite
+
 "#############################################################################
 " Typescript support
 "#############################################################################
@@ -395,7 +397,7 @@ else
   set t_Co=256
   set t_ut=
   colorscheme base16-materia
-  " colorscheme base16-default-dark
+  set bg=dark
   let g:airline_powerline_fonts = 1
 endif
 
