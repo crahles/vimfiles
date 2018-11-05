@@ -49,12 +49,11 @@ Plug 'vim-scripts/closetag.vim'
 " colorschemes
 "  ---------------------------------------------------------------------------
 "#############################################################################
-Plug 'therealechan/vim-railscasts-theme'
-Plug 'chriskempson/base16-vim'
-Plug 'dracula/vim'
-Plug 'twerth/ir_black'
+" Plug 'therealechan/vim-railscasts-theme'
+" Plug 'dracula/vim'
+" Plug 'twerth/ir_black'
 Plug 'rakr/vim-one'
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -396,8 +395,8 @@ else
 
   set t_Co=256
   set t_ut=
-  colorscheme base16-materia
-  set bg=dark
+  colorscheme one
+  set background=dark
   let g:airline_powerline_fonts = 1
 endif
 
