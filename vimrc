@@ -33,10 +33,12 @@ Plug 'tpope/vim-surround'
 " HTML completion with C-e (write haml style and transform to html)
 Plug 'rstacruz/sparkup'
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+
 " Plug 'Yggdroot/indentLine'
 "
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " let g:deoplete#enable_at_startup = 1
 
@@ -53,7 +55,7 @@ Plug 'vim-scripts/closetag.vim'
 "#############################################################################
 Plug 'therealechan/vim-railscasts-theme'
 Plug 'chriskempson/base16-vim'
-Plug 'dracula/vim'
+" Plug 'dracula/vim'
 Plug 'twerth/ir_black'
 Plug 'rakr/vim-one'
 Plug 'altercation/vim-colors-solarized'
@@ -139,6 +141,8 @@ endif
 
 " autocmd QuickFixCmdPost [^l]* nested cwindow
 " autocmd QuickFixCmdPost    l* nested lwindow
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 "#############################################################################
 " Golang support
@@ -390,16 +394,15 @@ if has("gui_running")
 else
   if (empty($TMUX))
     if (has("termguicolors"))
-      " set termguicolors
+      set termguicolors
     endif
   endif
 
-  " set t_Co=256
-  " set t_ut=
+  set t_Co=256
+  set t_ut=
 
-  colorscheme solarized
+  colorscheme one
   set background=dark
-  " let g:airline_theme = 'tomorrow'
 
   let g:airline_powerline_fonts = 1
 endif
