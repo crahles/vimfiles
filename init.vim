@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 Plug 'gmarik/vundle'
 
 "#############################################################################
@@ -55,9 +55,9 @@ Plug 'vim-scripts/closetag.vim'
 " Plug 'therealechan/vim-railscasts-theme'
 " Plug 'dracula/vim'
 " Plug 'twerth/ir_black'
-" Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'
 Plug 'rakr/vim-one'
-" Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
