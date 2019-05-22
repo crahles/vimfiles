@@ -1,4 +1,4 @@
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/vimfiles/plugged')
 Plug 'gmarik/vundle'
 
 "#############################################################################
@@ -11,35 +11,41 @@ Plug 'Townk/vim-autoclose'
 " A code-completion engine for vim
 " Plug 'Valloric/YouCompleteMe'
 
+" Find a repace
 Plug 'brooth/far.vim'
 
+" Use TAB for completion
 Plug 'ervandew/supertab'
 
-Plug 'godlygeek/tabular'
+" Allign code
+" Plug 'godlygeek/tabular'
 
 " TODO replace this with fzf
 Plug 'ctrlpvim/ctrlp.vim'
 
+" Find stuff
 Plug 'rking/ag.vim'
 
+
+" Syntax checker
 Plug 'scrooloose/syntastic'
 
-" Plug 'tomtom/tcomment_vim'
+" ES6 template strings support
+" Plug 'Quramy/vim-js-pretty-template'
+
 Plug 'tpope/vim-commentary'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
 " HTML completion with C-e (write haml style and transform to html)
-Plug 'rstacruz/sparkup'
+" Plug 'rstacruz/sparkup'
 
-" Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 "
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'sheerun/vim-polyglot'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 
-" let g:deoplete#enable_at_startup = 1
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -47,40 +53,74 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'vim-scripts/closetag.vim'
 
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+
+let g:coc_global_extensions = [ 'coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml' ]
+" Better display for messages
+set cmdheight=2
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+
+
+" Use `lp` and `ln` for navigate diagnostics
+nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>ln <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> <leader>ld <Plug>(coc-definition)
+nmap <silent> <leader>lt <Plug>(coc-type-definition)
+nmap <silent> <leader>li <Plug>(coc-implementation)
+nmap <silent> <leader>lf <Plug>(coc-references)
+
 "#############################################################################
 "  ---------------------------------------------------------------------------
 " colorschemes
 "  ---------------------------------------------------------------------------
 "#############################################################################
 " Plug 'therealechan/vim-railscasts-theme'
-" Plug 'dracula/vim'
 " Plug 'twerth/ir_black'
-Plug 'chriskempson/base16-vim'
 Plug 'rakr/vim-one'
-Plug 'altercation/vim-colors-solarized'
+" Plug 'chriskempson/base16-vim'
+" Plug 'altercation/vim-colors-solarized'
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
 " Language Support
 "  ---------------------------------------------------------------------------
 "#############################################################################
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'fatih/vim-go'
-Plug 'kchmck/vim-coffee-script'
-Plug 'digitaltoad/vim-pug'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'keith/rspec.vim'
-Plug 'amadeus/vim-mjml'
+
+" Basic syntax highglighting for some languages
+Plug 'sheerun/vim-polyglot'
+
+" Plug 'kchmck/vim-coffee-script'
+" Plug 'digitaltoad/vim-pug'
+" Plug 'amadeus/vim-mjml'
+" Plug 'cakebaker/scss-syntax.vim'
+
+" typescript IDE for vim
+" maybe not needed because no support of neovim. Looks like support for vim
+" only
+" Plug 'Quramy/tsuquyomi'
 
 
 " More Highlighting for typescript
-Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
-" Typescript syntax highlighting
-Plug 'leafgarland/typescript-vim'
 
-" typescript IDE for vim
-Plug 'Quramy/tsuquyomi'
-Plug 'Shougo/vimproc.vim'
+" Plug 'Shougo/deoplete.nvim'
+
+" For async completion
+" For Denite features
+" Plug 'Shougo/denite.nvim'
+
+" Plug 'Shougo/vimproc.vim'
 
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
@@ -88,9 +128,7 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/jQuery'
-Plug 'vim-scripts/SyntaxComplete'
-
-Plug 'Shougo/neocomplete'
+" Plug 'vim-scripts/SyntaxComplete'
 
 call plug#end()
 
@@ -103,12 +141,13 @@ filetype plugin indent on
 let mapleader = ","
 let g:mapleader = ","
 set modelines=0
-syntax enable
+syntax on
 set nobackup
 set nowritebackup
 set noswapfile
 set history=1000
 set autoread
+:tnoremap <Esc> <C-\><C-n>
 
 set statusline=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -119,8 +158,15 @@ set autowrite
 "#############################################################################
 " Typescript support
 "#############################################################################
+if has("autocmd")
+  au BufRead,BufNewFile *.ts  set filetype=typescript
+  " au FileType typescript setlocal completeopt-=menu,preview
+  " au FileType typescript setlocal completeopt-=menu
+endif
+
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
@@ -133,11 +179,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 
 let g:tsuquyomi_completion_detail = 1
 
-if has("autocmd")
-  au BufRead,BufNewFile *.ts  set filetype=typescript
-  au FileType typescript setlocal completeopt-=menu,preview
-  au FileType typescript setlocal completeopt-=menu
-endif
+let g:closetag_filetypes = 'html,xhtml,phtml'
 
 " autocmd QuickFixCmdPost [^l]* nested cwindow
 " autocmd QuickFixCmdPost    l* nested lwindow
@@ -164,7 +206,6 @@ let g:go_fmt_command = "goimports"
 let g:go_highlight_structs = 1
 let g:go_highlight_format_strings = 1
 let g:go_highlight_fields = 1
-let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_extra_types =1
 let g:go_highlight_functions_calls = 1
@@ -230,10 +271,12 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
       \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" " autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+
+" let g:deoplete#enable_at_startup = 1
 
 
 "#############################################################################
@@ -331,7 +374,6 @@ nnoremap <leader>t :tabnew<CR>
 " Open Explor
 nnoremap <leader>e :Explore<CR>
 
-
 " AG
 nnoremap <leader>a :Ag<Space>
 
@@ -369,7 +411,7 @@ let Tlist_Ctags_Cmd = 'ctags'
 
 " Make Vim use RVM correctly when using Zsh
 " https://rvm.beginrescueend.com/integration/vim/
-set shell=/bin/sh
+set shell=/bin/zsh
 
 "  ---------------------------------------------------------------------------
 "  Language Mappings
@@ -380,7 +422,6 @@ if has("autocmd")
 
   " mjml
   au BufRead,BufNewFile *.mjml set filetype=haml
-
 
   " CoffeeScript
   let coffee_compile_vert = 1
@@ -393,41 +434,31 @@ if has("autocmd")
   autocmd BufNewFile, BufRead *.html.erb set filetype=html.erb
 endif
 
-"  ---------------------------------------------------------------------------
-"   MacVIM / Gvim / Terminal vim setting
-"  ---------------------------------------------------------------------------
-
-if has("gui_running")
-  set guioptions-=T " no toolbar set guioptions-=m " no menus
-  set guioptions-=r " no scrollbar on the right
-  set guioptions-=R " no scrollbar on the right
-  set guioptions-=l " no scrollbar on the left
-  set guioptions-=b " no scrollbar on the bottom
-  set guioptions=aiA
-
-  set guifont=Dejavu\ Sans\ mono\ for\ powerline:h16
-  set linespace=1
-else
-  if (empty($TMUX))
-    if (has("termguicolors"))
-      set termguicolors
-    endif
+if (empty($TMUX))
+  if (has("termguicolors"))
+    set termguicolors
   endif
+endif
 
-  set t_Co=256
-  set t_ut=
-  colorscheme one
+set t_Co=256
+set t_ut=
+
+let iterm_profile = $ITERM_PROFILE
+colorscheme one
+
+if iterm_profile == "Dark"
   set background=dark
-  let g:airline_powerline_fonts = 1
+else
+  set background=light
 endif
 
 "  ---------------------------------------------------------------------------
 "  Plugins
 "  ---------------------------------------------------------------------------
-
-" vim-scripts/DeleteTrailingWhitespace.git
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
+
+let g:airline_powerline_fonts = 1
 
 " AutoClose
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '#{': '}'}
@@ -448,5 +479,5 @@ au FocusGained * checktime
 " inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 " When vimrc, either directly or via symlink, is edited, automatically reload it
-autocmd! bufwritepost .vimrc source %
-autocmd! bufwritepost vimrc source %
+autocmd! bufwritepost .init.vim source %
+autocmd! bufwritepost init.vim source %
