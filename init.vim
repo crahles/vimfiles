@@ -51,7 +51,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'vim-scripts/DeleteTrailingWhitespace'
-Plug 'vim-scripts/closetag.vim'
+Plug 'alvan/vim-closetag'
 
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
