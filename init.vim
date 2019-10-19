@@ -21,7 +21,8 @@ Plug 'ervandew/supertab'
 " Plug 'godlygeek/tabular'
 
 " TODO replace this with fzf
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Find stuff
 Plug 'rking/ag.vim'
@@ -465,7 +466,7 @@ let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '#{': 
 let g:AutoCloseProtectedRegions = ["Character"]
 
 " CtrlP
-nmap <leader>f :CtrlP<cr>
+nmap <leader>f :FZF<cr>
 " let g:ctrlp_user_command = 'ag %s -l --nocolor --ignore node_modules --ignore DS_Store --ignore git --ignore public/assets --ignore public/cached-assets --ignore public/cms-assets --ignore public/assets/source_maps --ignore doc --ignore public/uploads -g ""'
 let g:ctrlp_use_caching = 1
 " let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
