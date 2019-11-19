@@ -405,12 +405,6 @@ endif
 set backupdir=~/tmp,/tmp
 set undodir=~/.vim/.tmp,~/tmp,~/.tmp,/tmp
 
-" Ignore some binary, versioning and backup files when auto-completing
-set wildignore=.svn,CVS,.git,*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak
-set wildignore+=**/build/**,**/target/**,**/cms-assets/**,**/tmp/**,**/vendor/**
-set wildignore+=**/node_modules/**,**/bower_components/**
-set wildignore+=**/doc/**,**/cache*/**
-
 " Ctags path (brew install ctags)
 let Tlist_Ctags_Cmd = 'ctags'
 
@@ -473,6 +467,7 @@ let g:AutoCloseProtectedRegions = ["Character"]
 nmap <leader>f :FZF<cr>
 " let g:ctrlp_user_command = 'ag %s -l --nocolor --ignore node_modules --ignore DS_Store --ignore git --ignore public/assets --ignore public/cached-assets --ignore public/cms-assets --ignore public/assets/source_maps --ignore doc --ignore public/uploads -g ""'
 let g:ctrlp_use_caching = 1
+set rtp+=/usr/local/opt/fzf
 " let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 " Airline
