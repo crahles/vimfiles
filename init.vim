@@ -219,17 +219,6 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:syntastic_go_checkers = ['go', 'govet', 'errcheck']
 
-if has("autocmd")
-  au BufNewFile,BufRead *.go set filetype=go
-  au FileType go nmap <Leader>b <Plug>(go-build)
-  au FileType go nmap <Leader>gd <Plug>(go-doc)
-  au FileType go nmap <Leader>i <Plug>(go-info)
-  au FileType go nmap <Leader>r <Plug>(go-run)
-  au FileType go nmap <Leader>t <Plug>(go-test)
-  au FileType go nmap gd <Plug>(go-def-tab)
-  au FileType go setl ts=4 sw=4 sts=4 noet
-endif
-
 " autocmd QuickFixCmdPost [^l]* nested cwindow
 " autocmd QuickFixCmdPost    l* nested lwindow
 
