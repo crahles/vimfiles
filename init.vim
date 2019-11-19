@@ -56,26 +56,6 @@ Plug 'alvan/vim-closetag'
 
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
-let g:coc_global_extensions = [ 'coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml' ]
-" Better display for messages
-set cmdheight=2
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-" always show signcolumns
-set signcolumn=yes
-
-
-" Use `lp` and `ln` for navigate diagnostics
-nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>ln <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> <leader>ld <Plug>(coc-definition)
-nmap <silent> <leader>lt <Plug>(coc-type-definition)
-nmap <silent> <leader>li <Plug>(coc-implementation)
-nmap <silent> <leader>lf <Plug>(coc-references)
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -155,6 +135,16 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 set autowrite
+" Better display for messages
+set cmdheight=2
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+
+
 
 "#############################################################################
 " Typescript support
@@ -164,6 +154,8 @@ if has("autocmd")
   " au FileType typescript setlocal completeopt-=menu,preview
   " au FileType typescript setlocal completeopt-=menu
 endif
+
+let g:coc_global_extensions = [ 'coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml' ]
 
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
@@ -181,6 +173,18 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:tsuquyomi_completion_detail = 1
 
 let g:closetag_filetypes = 'html,xhtml,phtml'
+
+" Use `lp` and `ln` for navigate diagnostics
+nmap <silent> <Leader>p <Plug>(coc-diagnostic-prev)
+nmap <silent> <Leader>n <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> <Leader>ld <Plug>(coc-definition)
+nmap <silent> <Leader>lt <Plug>(coc-type-definition)
+nmap <silent> <Leader>li <Plug>(coc-implementation)
+nmap <silent> <Leader>lf <Plug>(coc-references)
+nmap <silent> <Leader>q <Plug>(coc-codeaction)
+
 
 " autocmd QuickFixCmdPost [^l]* nested cwindow
 " autocmd QuickFixCmdPost    l* nested lwindow
