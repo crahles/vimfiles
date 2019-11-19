@@ -175,8 +175,8 @@ let g:tsuquyomi_completion_detail = 1
 let g:closetag_filetypes = 'html,xhtml,phtml'
 
 " Use `lp` and `ln` for navigate diagnostics
-nmap <silent> <Leader>p <Plug>(coc-diagnostic-prev)
-nmap <silent> <Leader>n <Plug>(coc-diagnostic-next)
+nmap <silent> <Leader>w <Plug>(coc-diagnostic-prev)
+nmap <silent> <Leader>s <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> <Leader>ld <Plug>(coc-definition)
