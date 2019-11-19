@@ -179,9 +179,9 @@ nmap <silent> <Leader>w <Plug>(coc-diagnostic-prev)
 nmap <silent> <Leader>s <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
-nmap <silent> <Leader>ld <Plug>(coc-definition)
-nmap <silent> <Leader>lt <Plug>(coc-type-definition)
-nmap <silent> <Leader>li <Plug>(coc-implementation)
+nmap <silent> <Leader>d <Plug>(coc-definition)
+nmap <silent> <Leader>D <Plug>(coc-type-definition)
+nmap <silent> <Leader>i <Plug>(coc-implementation)
 nmap <silent> <Leader>lf <Plug>(coc-references)
 nmap <silent> <Leader>q <Plug>(coc-codeaction)
 
@@ -385,10 +385,6 @@ nnoremap <leader>a :Ag<Space>
 " Switch between buffers
 noremap <tab> :bn<CR>
 noremap <S-tab> :bp<CR>
-" close buffer
-nmap <leader>d :Bclose<CR>
-" close all buffers
-nmap <leader>D :bufdo bd<CR>
 
 if exists(":Tabularize")
   nmap <leader>g= :Tabularize /=<CR>
