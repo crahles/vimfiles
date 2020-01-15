@@ -67,6 +67,7 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 Plug 'rakr/vim-one'
 " Plug 'chriskempson/base16-vim'
 " Plug 'altercation/vim-colors-solarized'
+Plug 'ericbn/vim-solarized'
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
