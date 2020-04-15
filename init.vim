@@ -63,7 +63,7 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 "  ---------------------------------------------------------------------------
 "#############################################################################
 " Plug 'therealechan/vim-railscasts-theme'
-" Plug 'twerth/ir_black'
+Plug 'twerth/ir_black'
 Plug 'rakr/vim-one'
 " Plug 'chriskempson/base16-vim'
 " Plug 'altercation/vim-colors-solarized'
@@ -431,6 +431,7 @@ set t_ut=
 let iterm_profile = $ITERM_PROFILE
 colorscheme one
 
+" set background=dark
 if iterm_profile == "Dark"
   set background=dark
 else
