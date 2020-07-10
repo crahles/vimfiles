@@ -54,7 +54,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'alvan/vim-closetag'
 
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 "#############################################################################
@@ -68,6 +68,8 @@ Plug 'rakr/vim-one'
 " Plug 'chriskempson/base16-vim'
 " Plug 'altercation/vim-colors-solarized'
 Plug 'ericbn/vim-solarized'
+Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-gruvbox8'
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -93,7 +95,7 @@ Plug 'sheerun/vim-polyglot'
 
 " More Highlighting for typescript
 " Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 
 " Plug 'Shougo/deoplete.nvim'
@@ -242,6 +244,7 @@ if has("autocmd")
 
   " au FileType ruby map <Leader>r :RuboCop -a<CR>
   au BufNewFile,BufRead *_spec.rb set filetype=rspec
+  au BufNewFile,BufRead *_examples.rb set filetype=rspec
   au FileType ruby compiler ruby
 endif
 
@@ -430,11 +433,12 @@ set t_ut=
 
 let iterm_profile = $ITERM_PROFILE
 colorscheme one
-
 " set background=dark
+
 if iterm_profile == "Dark"
   set background=dark
 else
+  colorscheme one
   set background=light
 endif
 
