@@ -5,14 +5,20 @@ Plug 'gmarik/vundle'
 "  ---------------------------------------------------------------------------
 " Tools
 "  ---------------------------------------------------------------------------
-"#############################################################################
-Plug 'Townk/vim-autoclose'
+" Archive for later
+
+" Find a repace
+" Plug 'brooth/far.vim'
 
 " A code-completion engine for vim
 " Plug 'Valloric/YouCompleteMe'
 
-" Find a repace
-Plug 'brooth/far.vim'
+"#############################################################################
+Plug 'Townk/vim-autoclose'
+
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 " Use TAB for completion
 Plug 'ervandew/supertab'
@@ -54,8 +60,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'alvan/vim-closetag'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -76,7 +80,8 @@ Plug 'lifepillar/vim-gruvbox8'
 " Language Support
 "  ---------------------------------------------------------------------------
 "#############################################################################
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'keith/rspec.vim'
 
 " Basic syntax highglighting for some languages
@@ -111,7 +116,6 @@ Plug 'tpope/vim-markdown'
 
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-Plug 'vim-scripts/jQuery'
 " Plug 'vim-scripts/SyntaxComplete'
 
 call plug#end()
