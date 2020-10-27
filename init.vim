@@ -304,8 +304,8 @@ set nofoldenable
 
 " Auto adjust window sizes when they become current
 set winwidth=81
-set winheight=5
-set winminheight=5
+" set winheight=5
+" set winminheight=5
 set splitbelow splitright
 
 "#############################################################################
