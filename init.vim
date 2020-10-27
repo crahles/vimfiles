@@ -74,6 +74,7 @@ Plug 'rakr/vim-one'
 Plug 'ericbn/vim-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-gruvbox8'
+Plug 'hzchirs/vim-material'
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
