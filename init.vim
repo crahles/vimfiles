@@ -163,7 +163,17 @@ if has("autocmd")
   " au FileType typescript setlocal completeopt-=menu
 endif
 
-let g:coc_global_extensions = [ 'coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml' ]
+let g:coc_global_extensions = [
+      \ 'coc-eslint',
+      \ 'coc-prettier',
+      \ 'coc-tsserver',
+      \ 'coc-tslint',
+      \ 'coc-tslint-plugin',
+      \ 'coc-css',
+      \ 'coc-json',
+      \ 'coc-pyls',
+      \ 'coc-yaml'
+      \]
 
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
