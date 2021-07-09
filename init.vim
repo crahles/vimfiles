@@ -51,7 +51,7 @@ Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 "
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 
 
 Plug 'vim-airline/vim-airline'
@@ -66,15 +66,16 @@ Plug 'alvan/vim-closetag'
 " colorschemes
 "  ---------------------------------------------------------------------------
 "#############################################################################
-" Plug 'therealechan/vim-railscasts-theme'
 Plug 'twerth/ir_black'
 Plug 'rakr/vim-one'
+" Plug 'DenniJensen/vim-one'
 " Plug 'chriskempson/base16-vim'
 " Plug 'altercation/vim-colors-solarized'
 Plug 'ericbn/vim-solarized'
-Plug 'morhetz/gruvbox'
-Plug 'lifepillar/vim-gruvbox8'
-Plug 'hzchirs/vim-material'
+" Plug 'morhetz/gruvbox'
+" Plug 'lifepillar/vim-gruvbox8'
+" Plug 'hzchirs/vim-material'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -86,7 +87,7 @@ Plug 'hzchirs/vim-material'
 Plug 'keith/rspec.vim'
 
 " Basic syntax highglighting for some languages
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " Plug 'kchmck/vim-coffee-script'
 " Plug 'digitaltoad/vim-pug'
@@ -100,7 +101,7 @@ Plug 'sheerun/vim-polyglot'
 
 
 " More Highlighting for typescript
-" Plug 'HerringtonDarkholme/yats.vim'
+Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 
@@ -202,6 +203,8 @@ nmap <silent> <Leader>D <Plug>(coc-type-definition)
 nmap <silent> <Leader>i <Plug>(coc-implementation)
 nmap <silent> <Leader>lf <Plug>(coc-references)
 nmap <silent> <Leader>q <Plug>(coc-codeaction)
+
+nmap <leader>i :CocCommand tsserver.organizeImports<cr>
 
 
 " autocmd QuickFixCmdPost [^l]* nested cwindow
