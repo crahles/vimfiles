@@ -23,6 +23,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Use TAB for completion
 Plug 'ervandew/supertab'
 
+Plug 'mattn/emmet-vim'
+
 " Allign code
 " Plug 'godlygeek/tabular'
 
@@ -191,7 +193,9 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 
 let g:tsuquyomi_completion_detail = 1
 
-let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_filetypes = 'html,xhtml,phtml,vue'
+
+let g:user_emmet_leader_key=','
 
 " Use `lp` and `ln` for navigate diagnostics
 nmap <silent> <Leader>w <Plug>(coc-diagnostic-prev)
