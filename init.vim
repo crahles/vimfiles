@@ -16,9 +16,9 @@ Plug 'gmarik/vundle'
 "#############################################################################
 Plug 'Townk/vim-autoclose'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 
 " Use TAB for completion
 Plug 'ervandew/supertab'
@@ -50,6 +50,7 @@ Plug 'tpope/vim-surround'
 " HTML completion with C-e (write haml style and transform to html)
 " Plug 'rstacruz/sparkup'
 
+" Vertical Line to show indent level
 Plug 'Yggdroot/indentLine'
 "
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -62,7 +63,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'alvan/vim-closetag'
 
-
 "#############################################################################
 "  ---------------------------------------------------------------------------
 " colorschemes
@@ -70,14 +70,10 @@ Plug 'alvan/vim-closetag'
 "#############################################################################
 Plug 'twerth/ir_black'
 Plug 'rakr/vim-one'
-" Plug 'DenniJensen/vim-one'
 " Plug 'chriskempson/base16-vim'
-" Plug 'altercation/vim-colors-solarized'
 Plug 'ericbn/vim-solarized'
 " Plug 'morhetz/gruvbox'
 " Plug 'lifepillar/vim-gruvbox8'
-" Plug 'hzchirs/vim-material'
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -91,7 +87,7 @@ Plug 'keith/rspec.vim'
 " Basic syntax highglighting for some languages
 " Plug 'sheerun/vim-polyglot'
 
-" Plug 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script'
 " Plug 'digitaltoad/vim-pug'
 " Plug 'amadeus/vim-mjml'
 " Plug 'cakebaker/scss-syntax.vim'
@@ -178,6 +174,7 @@ let g:coc_global_extensions = [
       \ 'coc-yaml'
       \]
 
+      " \ 'coc-solargraph',
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let syntastic_mode_map = { 'passive_filetypes': ['html'] }
@@ -265,8 +262,8 @@ if has("autocmd")
   highlight def link rubyRspec Function
 
   " au FileType ruby map <Leader>r :RuboCop -a<CR>
-  au BufNewFile,BufRead *_spec.rb set filetype=rspec
-  au BufNewFile,BufRead *_examples.rb set filetype=rspec
+  au BufNewFile,BufRead *_spec.rb set filetype=ruby
+  au BufNewFile,BufRead *_examples.rb set filetype=ruby
   au FileType ruby compiler ruby
 endif
 
@@ -455,6 +452,7 @@ set t_ut=
 
 let iterm_profile = $ITERM_PROFILE
 colorscheme one
+let g:one_allow_italics = 1
 " set background=dark
 
 if iterm_profile == "Dark"
