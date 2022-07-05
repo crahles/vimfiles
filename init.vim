@@ -51,6 +51,7 @@ Plug 'tpope/vim-surround'
 " Plug 'rstacruz/sparkup'
 Plug 'mattn/emmet-vim'
 
+" This fucks up json and markdown
 Plug 'Yggdroot/indentLine'
 "
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -71,6 +72,7 @@ Plug 'alvan/vim-closetag'
 "  ---------------------------------------------------------------------------
 "#############################################################################
 Plug 'rakr/vim-one'
+Plug 'sainnhe/everforest'
 "#############################################################################
 "  ---------------------------------------------------------------------------
 " Language Support
@@ -78,6 +80,7 @@ Plug 'rakr/vim-one'
 "#############################################################################
 
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'keith/rspec.vim'
 
 " Basic syntax highglighting for some languages
@@ -109,6 +112,8 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
+
+Plug 'leafOfTree/vim-vue-plugin'
 
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
@@ -161,6 +166,7 @@ endif
 let g:coc_global_extensions = [
       \ 'coc-eslint',
       \ 'coc-prettier',
+      \ 'coc-solargraph',
       \ 'coc-tsserver',
       \ 'coc-tslint',
       \ 'coc-tslint-plugin',
@@ -220,6 +226,8 @@ if has("autocmd")
   au FileType go nmap <Leader>t <Plug>(go-test)
   au FileType go nmap gd <Plug>(go-def-tab)
   au FileType go setl ts=4 sw=4 sts=4 noet
+
+  au BufNewFile,BufRead *.vue set filetype=vue
 endif
 
 let g:go_fmt_command = "goimports"
@@ -258,8 +266,8 @@ if has("autocmd")
   highlight def link rubyRspec Function
 
   " au FileType ruby map <Leader>r :RuboCop -a<CR>
-  au BufNewFile,BufRead *_spec.rb set filetype=rspec
-  au BufNewFile,BufRead *_examples.rb set filetype=rspec
+  au BufNewFile,BufRead *_spec.rb set filetype=ruby
+  au BufNewFile,BufRead *_examples.rb set filetype=ruby
   au FileType ruby compiler ruby
 endif
 
@@ -451,12 +459,12 @@ set t_ut=
 
 let iterm_profile = $ITERM_PROFILE
 colorscheme one
-" set background=dark
+
+let g:one_allow_italics = 1
 
 if iterm_profile == "Dark"
   set background=dark
 else
-  colorscheme one
   set background=light
 endif
 
@@ -471,6 +479,12 @@ let g:airline_powerline_fonts = 1
 " AutoClose
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '#{': '}'}
 let g:AutoCloseProtectedRegions = ["Character"]
+
+" Show quotes in JSON File
+set conceallevel=0
+let g:vim_json_conceal=0
+" let g:markdown_syntax_conceal=0
+
 
 " CtrlP
 nmap <leader>f :FZF<cr>
