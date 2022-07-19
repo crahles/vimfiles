@@ -458,13 +458,19 @@ set t_Co=256
 set t_ut=
 
 let iterm_profile = $ITERM_PROFILE
-colorscheme one
+" colorscheme one
+"
+" Everforest theme
+colorscheme everforest
 
+let g:everforest_enable_italic = 1
 let g:one_allow_italics = 1
 
 if iterm_profile == "Dark"
+  " let g:everforest_background = 'hard'
   set background=dark
 else
+  " let g:everforest_background = 'soft'
   set background=light
 endif
 
@@ -479,6 +485,7 @@ let g:airline_powerline_fonts = 1
 " AutoClose
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '#{': '}'}
 let g:AutoCloseProtectedRegions = ["Character"]
+
 
 " Show quotes in JSON File
 set conceallevel=0
