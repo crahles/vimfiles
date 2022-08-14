@@ -21,7 +21,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 " Use TAB for completion
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 
 Plug 'mattn/emmet-vim'
 
@@ -223,7 +223,7 @@ if has("autocmd")
   au FileType go nmap <Leader>gd <Plug>(go-doc)
   au FileType go nmap <Leader>i <Plug>(go-info)
   au FileType go nmap <Leader>r <Plug>(go-run)
-  au FileType go nmap <Leader>t <Plug>(go-test)
+  " au FileType go nmap <Leader>t <Plug>(go-test)
   au FileType go nmap gd <Plug>(go-def-tab)
   au FileType go setl ts=4 sw=4 sts=4 noet
 
@@ -259,9 +259,9 @@ if has("autocmd")
   au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=ruby
 
   " autocmd FileType ruby set omnifunc=rubycomplete#Complete
-  au FileType ruby let g:rubycomplete_buffer_loading = 1
-  au FileType ruby let g:rubycomplete_classes_in_global = 1
-  au FileType ruby let g:rubycomplete_rails = 1
+  " au FileType ruby let g:rubycomplete_buffer_loading = 1
+  " au FileType ruby let g:rubycomplete_classes_in_global = 1
+  " au FileType ruby let g:rubycomplete_rails = 1
   au BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
   highlight def link rubyRspec Function
 
@@ -284,7 +284,7 @@ let ruby_operators = 1
 "  ---------------------------------------------------------------------------
 "#############################################################################
 set completeopt=menu,longest
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
       \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
@@ -299,6 +299,43 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 
 " let g:deoplete#enable_at_startup = 1
 
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+  " Insert <tab> when previous text is space, refresh completion if not.
+inoremap <silent><expr> <TAB>
+\ coc#pum#visible() ? coc#pum#next(1):
+\ <SID>check_back_space() ? "\<Tab>" :
+\ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ?
+      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(0) : "\<down>"
+inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(0) : "\<up>"
+
+let g:coc_snippet_next = '<tab>'
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
