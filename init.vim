@@ -500,14 +500,16 @@ let iterm_profile = $ITERM_PROFILE
 " Everforest theme
 colorscheme everforest
 
-let g:everforest_enable_italic = 1
-let g:one_allow_italics = 1
+" let g:everforest_enable_italic = 1
+" let g:one_allow_italics = 1
+
+" let g:everforest_background = 'medium'
+" let g:everforest_background = 'hard'
+" let g:everforest_background = 'soft'
 
 if iterm_profile == "Dark"
-  " let g:everforest_background = 'hard'
   set background=dark
 else
-  " let g:everforest_background = 'soft'
   set background=light
 endif
 
