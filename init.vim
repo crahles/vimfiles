@@ -83,6 +83,9 @@ Plug 'sainnhe/everforest'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'keith/rspec.vim'
 
+" Toggle ruby blocks
+Plug 'jgdavey/vim-blockle'
+
 " Basic syntax highglighting for some languages
 " Plug 'sheerun/vim-polyglot'
 
@@ -193,6 +196,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:tsuquyomi_completion_detail = 1
 
 let g:closetag_filetypes = 'html,xhtml,phtml,vue'
+let g:closetag_filenames = "*.html.erb,*.html,*.xhtml,*.phtml"
 
 let g:user_emmet_leader_key=','
 
@@ -266,8 +270,6 @@ if has("autocmd")
   highlight def link rubyRspec Function
 
   " au FileType ruby map <Leader>r :RuboCop -a<CR>
-  au BufNewFile,BufRead *_spec.rb set filetype=ruby
-  au BufNewFile,BufRead *_examples.rb set filetype=ruby
   au FileType ruby compiler ruby
 endif
 
@@ -530,7 +532,6 @@ let g:AutoCloseProtectedRegions = ["Character"]
 set conceallevel=0
 let g:vim_json_conceal=0
 " let g:markdown_syntax_conceal=0
-
 
 " CtrlP
 nmap <leader>f :FZF<cr>
