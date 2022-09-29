@@ -81,6 +81,8 @@ Plug 'sainnhe/everforest'
 
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" highlight for rspec
 Plug 'keith/rspec.vim'
 
 " Toggle ruby blocks
