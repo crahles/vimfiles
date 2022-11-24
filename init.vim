@@ -269,6 +269,7 @@ if has("autocmd")
   " au FileType ruby let g:rubycomplete_classes_in_global = 1
   " au FileType ruby let g:rubycomplete_rails = 1
   au BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
+  au BufRead,BufNewFile *_spec.rb set filetype=ruby.rspec
   highlight def link rubyRspec Function
 
   " au FileType ruby map <Leader>r :RuboCop -a<CR>
