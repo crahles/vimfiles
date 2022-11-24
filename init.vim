@@ -536,12 +536,9 @@ set conceallevel=0
 let g:vim_json_conceal=0
 " let g:markdown_syntax_conceal=0
 
-" CtrlP
 nmap <leader>f :FZF<cr>
-" let g:ctrlp_user_command = 'ag %s -l --nocolor --ignore node_modules --ignore DS_Store --ignore git --ignore public/assets --ignore public/cached-assets --ignore public/cms-assets --ignore public/assets/source_maps --ignore doc --ignore public/uploads -g ""'
-let g:ctrlp_use_caching = 1
 set rtp+=/usr/local/opt/fzf
-" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:fzf_preview_window = ['hidden,right,50%,<70(up,40%)', 'ctrl-/']
 
 " Airline
 let g:Powerline_symbols = 'fancy'
