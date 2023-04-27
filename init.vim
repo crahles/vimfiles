@@ -46,6 +46,7 @@ Plug 'tpope/vim-commentary'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
 
 " HTML completion with C-e (write haml style and transform to html)
 " Plug 'rstacruz/sparkup'
