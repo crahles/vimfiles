@@ -214,12 +214,6 @@ nmap <silent> <Leader>i <Plug>(coc-implementation)
 nmap <silent> <Leader>lf <Plug>(coc-references)
 nmap <silent> <Leader>q <Plug>(coc-codeaction)
 
-nmap <leader>i :CocCommand tsserver.organizeImports<cr>
-
-
-" autocmd QuickFixCmdPost [^l]* nested cwindow
-" autocmd QuickFixCmdPost    l* nested lwindow
-
 "#############################################################################
 " Golang support
 "#############################################################################
