@@ -494,24 +494,14 @@ endif
 set t_Co=256
 set t_ut=
 
-let iterm_profile = $ITERM_PROFILE
-" colorscheme one
-"
-" Everforest theme
 colorscheme everforest
 
 " let g:everforest_enable_italic = 1
-" let g:one_allow_italics = 1
 
-" let g:everforest_background = 'medium'
-" let g:everforest_background = 'hard'
 " let g:everforest_background = 'soft'
-
-if iterm_profile == "Dark"
-  set background=dark
-else
-  set background=light
-endif
+let g:everforest_background = 'medium'
+" let g:everforest_background = 'hard'
+set background=light
 
 "  ---------------------------------------------------------------------------
 "  Plugins
