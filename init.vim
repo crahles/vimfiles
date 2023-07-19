@@ -133,8 +133,7 @@ call plug#end()
 "  General
 "#############################################################################
 filetype plugin indent on
-let mapleader = ","
-let g:mapleader = ","
+let g:mapleader = " "
 set modelines=0
 syntax on
 set nobackup
