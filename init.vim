@@ -211,7 +211,7 @@ nmap <silent> <Leader>s <Plug>(coc-diagnostic-next)
 nmap <silent> <Leader>d <Plug>(coc-definition)
 nmap <silent> <Leader>D <Plug>(coc-type-definition)
 nmap <silent> <Leader>i <Plug>(coc-implementation)
-nmap <silent> <Leader>lf <Plug>(coc-references)
+nmap <silent> <Leader>r <Plug>(coc-references)
 nmap <silent> <Leader>q <Plug>(coc-codeaction)
 
 "#############################################################################
