@@ -66,7 +66,6 @@ Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'alvan/vim-closetag'
 
 
-
 "#############################################################################
 "  ---------------------------------------------------------------------------
 " colorschemes
@@ -193,7 +192,7 @@ let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
 
 let g:acp_enableAtStartup = 0
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:SuperTabDefaultCompletionType = "<c-n>"
 
 let g:tsuquyomi_completion_detail = 1
 
@@ -303,6 +302,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
+
   " Insert <tab> when previous text is space, refresh completion if not.
 inoremap <silent><expr> <TAB>
 \ coc#pum#visible() ? coc#pum#next(1):
@@ -318,13 +318,6 @@ endif
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ?
-      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -441,6 +434,7 @@ noremap <S-tab> :bp<CR>
 " emmit
 let g:user_emmet_leader_key=','
 
+" TODO - make me work
 if exists(":Tabularize")
   nmap <leader>g= :Tabularize /=<CR>
   vmap <leader>g= :Tabularize /=<CR>
@@ -521,6 +515,7 @@ let g:vim_json_conceal=0
 " let g:markdown_syntax_conceal=0
 
 nmap <leader>f :FZF<cr>
+nmap <leader>g :GFiles<cr>
 set rtp+=/usr/local/opt/fzf
 let g:fzf_preview_window = ['hidden,right,50%,<70(up,40%)', 'ctrl-/']
 
