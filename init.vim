@@ -177,8 +177,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
+" let g:tsuquyomi_disable_quickfix = 1
+" let g:syntastic_typescript_checkers = ['tsuquyomi']
+" let g:tsuquyomi_completion_detail = 1
 
 let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
@@ -186,7 +187,6 @@ let g:typescript_compiler_options = ''
 let g:acp_enableAtStartup = 0
 " let g:SuperTabDefaultCompletionType = "<c-n>"
 
-let g:tsuquyomi_completion_detail = 1
 
 let g:closetag_filetypes = 'html,xhtml,phtml,vue'
 let g:closetag_filenames = "*.html.erb,*.html,*.xhtml,*.phtml"
@@ -207,7 +207,6 @@ nmap <silent> <Leader>q <Plug>(coc-codeaction)
 "#############################################################################
 " Golang support
 "#############################################################################
-
 if has("autocmd")
   au BufNewFile,BufRead *.go set filetype=go
   au FileType go nmap <Leader>b <Plug>(go-build)
@@ -256,8 +255,6 @@ if has("autocmd")
   " au FileType ruby map <Leader>r :RuboCop -a<CR>
   au FileType ruby compiler ruby
 endif
-
-
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
