@@ -33,8 +33,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Find stuff
-Plug 'rking/ag.vim'
-
+Plug 'ggreer/the_silver_searcher'
 
 " Syntax checker
 Plug 'scrooloose/syntastic'
@@ -414,10 +413,6 @@ set hlsearch
 nmap n nzz
 nmap N Nzz
 
-" ACK
-" set grepprg=ack
-" nnoremap <leader>a :Ack<Space>
-
 " New Tab
 nnoremap <leader>t :tabnew<CR>
 
@@ -425,7 +420,8 @@ nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>e :Explore<CR>
 
 " AG
-nnoremap <leader>a :Ag<Space>
+" TODO add current word into search bar
+nnoremap <leader>a :Ag<CR>
 
 " Switch between buffers
 noremap <tab> :bn<CR>
