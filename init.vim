@@ -475,8 +475,9 @@ set conceallevel=0
 let g:vim_json_conceal=0
 " let g:markdown_syntax_conceal=0
 
-nmap <leader>f :FZF<cr>
-nmap <leader>g :GFiles<cr>
+nmap <leader>ff :FZF<cr>
+nmap <leader>fg :GFiles<cr>
+nmap <leader>fb :Buffer<cr>
 set rtp+=/usr/local/opt/fzf
 let g:fzf_preview_window = ['hidden,right,50%,<70(up,40%)', 'ctrl-/']
 
