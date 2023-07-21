@@ -10,9 +10,6 @@ Plug 'gmarik/vundle'
 " Find a repace
 " Plug 'brooth/far.vim'
 
-" A code-completion engine for vim
-" Plug 'Valloric/YouCompleteMe'
-
 "#############################################################################
 Plug 'Townk/vim-autoclose'
 
@@ -54,7 +51,6 @@ Plug 'mattn/emmet-vim'
 " This fucks up json and markdown
 Plug 'Yggdroot/indentLine'
 "
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 
 
@@ -121,7 +117,6 @@ Plug 'leafOfTree/vim-vue-plugin'
 
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-" Plug 'vim-scripts/SyntaxComplete'
 
 call plug#end()
 
@@ -162,8 +157,6 @@ set signcolumn=yes
 "#############################################################################
 if has("autocmd")
   au BufRead,BufNewFile *.ts  set filetype=typescript
-  " au FileType typescript setlocal completeopt-=menu,preview
-  " au FileType typescript setlocal completeopt-=menu
 endif
 
 let g:coc_global_extensions = [
@@ -256,10 +249,6 @@ if has("autocmd")
   " Other files to consider Ruby
   au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=ruby
 
-  " autocmd FileType ruby set omnifunc=rubycomplete#Complete
-  " au FileType ruby let g:rubycomplete_buffer_loading = 1
-  " au FileType ruby let g:rubycomplete_classes_in_global = 1
-  " au FileType ruby let g:rubycomplete_rails = 1
   au BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
   au BufRead,BufNewFile *_spec.rb set filetype=ruby.rspec
   highlight def link rubyRspec Function
@@ -268,11 +257,6 @@ if has("autocmd")
   au FileType ruby compiler ruby
 endif
 
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_rails = 1
-let g:rubycomplete_load_gemfile = 1
-
-let ruby_operators = 1
 
 
 "#############################################################################
@@ -280,22 +264,6 @@ let ruby_operators = 1
 "	 AUTOCOMPLETE
 "  ---------------------------------------------------------------------------
 "#############################################################################
-set completeopt=menu,longest
-" set omnifunc=syntaxcomplete#Complete
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-      \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-      \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-" Enable omni completion.
-" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-" " autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-
-" let g:deoplete#enable_at_startup = 1
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
@@ -519,9 +487,6 @@ let g:fzf_preview_window = ['hidden,right,50%,<70(up,40%)', 'ctrl-/']
 let g:Powerline_symbols = 'fancy'
 au CursorHold * checktime
 au FocusGained * checktime
-
-" Add settings for tabular
-" inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 " When vimrc, either directly or via symlink, is edited, automatically reload it
 autocmd! bufwritepost .init.vim source %
