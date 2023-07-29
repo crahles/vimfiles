@@ -1,4 +1,7 @@
 {
   "codeLens.enable": true,
-  "solargraph.useBundler": true
+  "solargraph.useBundler": true,
+  "solargraph.bundlerPath": "~/.rbenv/shims/bundler",
+  "coc.preferences.formatOnSave": true,
+  "html.filetypes": ["blade", "eruby", "handlebars", "html", "htmldjango"]
 }
