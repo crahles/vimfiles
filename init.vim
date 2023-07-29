@@ -50,9 +50,6 @@ Plug 'mattn/emmet-vim'
 
 " This fucks up json and markdown
 Plug 'Yggdroot/indentLine'
-"
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
-
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -74,49 +71,28 @@ Plug 'sainnhe/everforest'
 "  ---------------------------------------------------------------------------
 "#############################################################################
 
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" highlight for rspec
-Plug 'keith/rspec.vim'
 
 " Toggle ruby blocks
 Plug 'jgdavey/vim-blockle'
 
 " Basic syntax highglighting for some languages
-" Plug 'sheerun/vim-polyglot'
+" e.g coffee
+Plug 'sheerun/vim-polyglot'
 
 " Plug 'kchmck/vim-coffee-script'
-" Plug 'digitaltoad/vim-pug'
-" Plug 'amadeus/vim-mjml'
 " Plug 'cakebaker/scss-syntax.vim'
-
-" typescript IDE for vim
-" maybe not needed because no support of neovim. Looks like support for vim
-" only
-" Plug 'Quramy/tsuquyomi'
-
 
 " More Highlighting for typescript
 Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
-
-" Plug 'Shougo/deoplete.nvim'
-
-" For async completion
-" For Denite features
-" Plug 'Shougo/denite.nvim'
-
-" Plug 'Shougo/vimproc.vim'
-
-Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
 
 Plug 'leafOfTree/vim-vue-plugin'
 
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-haml'
 
 call plug#end()
 
@@ -248,8 +224,7 @@ if has("autocmd")
   " Other files to consider Ruby
   au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=ruby
 
-  au BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
-  au BufRead,BufNewFile *_spec.rb set filetype=ruby.rspec
+  " au BufRead,BufNewFile *_spec.rb set filetype=ruby.rspec
   highlight def link rubyRspec Function
 
   " au FileType ruby map <Leader>r :RuboCop -a<CR>
@@ -432,11 +407,11 @@ if has("autocmd")
   let coffee_compile_vert = 1
   au BufNewFile,BufReadPost *.coffee setl foldmethod=indent
 
-  " SASS / SCSS
+  " HTML / SASS / SCSS
   au BufNewFile,BufReadPost *.scss setl foldmethod=indent
   au BufNewFile,BufReadPost *.sass setl foldmethod=indent
-  au BufRead,BufNewFile *.scss set filetype=scss
-  autocmd BufNewFile, BufRead *.html.erb set filetype=html.erb
+  au BufNewFile,BufReadPost *.scss set filetype=scss
+  " au BufNewFile,BufReadPost *.html.erb set filetype=html
 endif
 
 if (empty($TMUX))
@@ -450,11 +425,8 @@ set t_ut=
 
 colorscheme everforest
 
-" let g:everforest_enable_italic = 1
-
-" let g:everforest_background = 'soft'
+" soft / medium / hard
 let g:everforest_background = 'medium'
-" let g:everforest_background = 'hard'
 set background=light
 
 "  ---------------------------------------------------------------------------
