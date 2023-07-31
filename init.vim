@@ -40,8 +40,10 @@ Plug 'mattn/emmet-vim'
 " This fucks up json and markdown
 Plug 'Yggdroot/indentLine'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
+
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'alvan/vim-closetag'
@@ -448,6 +450,8 @@ nmap <leader>fg :GFiles<cr>
 nmap <leader>fb :Buffer<cr>
 set rtp+=/usr/local/opt/fzf
 let g:fzf_preview_window = ['hidden,right,50%,<70(up,40%)', 'ctrl-/']
+
+lua require('config')
 
 au CursorHold * checktime
 au FocusGained * checktime
