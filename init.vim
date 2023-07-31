@@ -1,5 +1,4 @@
 call plug#begin('~/vimfiles/plugged')
-Plug 'gmarik/vundle'
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -9,21 +8,15 @@ Plug 'gmarik/vundle'
 
 " Find a repace
 " Plug 'brooth/far.vim'
+"
+" Allign code
+" Plug 'godlygeek/tabular'
 
 "#############################################################################
 Plug 'Townk/vim-autoclose'
 
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-
-" Use TAB for completion
-" Plug 'ervandew/supertab'
-
-Plug 'mattn/emmet-vim'
-
-" Allign code
-" Plug 'godlygeek/tabular'
 
 " TODO replace this with fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -35,14 +28,10 @@ Plug 'ggreer/the_silver_searcher'
 " Syntax checker
 Plug 'scrooloose/syntastic'
 
-" ES6 template strings support
-" Plug 'Quramy/vim-js-pretty-template'
-
 Plug 'tpope/vim-commentary'
-
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-endwise'
 
 " HTML completion with C-e (write haml style and transform to html)
 " Plug 'rstacruz/sparkup'
@@ -435,6 +424,8 @@ set background=light
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
 
+" Airline
+let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
 
 " AutoClose
@@ -453,8 +444,6 @@ nmap <leader>fb :Buffer<cr>
 set rtp+=/usr/local/opt/fzf
 let g:fzf_preview_window = ['hidden,right,50%,<70(up,40%)', 'ctrl-/']
 
-" Airline
-let g:Powerline_symbols = 'fancy'
 au CursorHold * checktime
 au FocusGained * checktime
 
