@@ -332,6 +332,11 @@ map <C-l> <C-w>l
 " Searching / moving
 nnoremap / /\v
 vnoremap / /\v
+nmap <leader>h :noh<CR>
+
+nmap <C-A><C-A> :A<CR>
+nmap <C-A><C-V> :AV<CR>
+
 set ignorecase
 set smartcase
 set incsearch
