@@ -233,29 +233,30 @@ function! s:check_back_space() abort
 endfunction
 
 
-  " Insert <tab> when previous text is space, refresh completion if not.
-inoremap <silent><expr> <TAB>
-\ coc#pum#visible() ? coc#pum#next(1):
-\ <SID>check_back_space() ? "\<Tab>" :
-\ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
-      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(0) : "\<down>"
-inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(0) : "\<up>"
+if has('nvim')
+  imap <silent><expr> <c-space> coc#refresh()
+else
+  imap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Insert <tab> when previous text is space, refresh completion if not.
+" (0) -> only select
+" (1) -> only select and auto replace current word
+imap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1):
+\ <SID>check_back_space() ? "\<Tab>" :
+\ coc#refresh()
+imap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+imap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+imap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(0) : "\<down>"
+imap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(0) : "\<up>"
 
 let g:coc_snippet_next = '<tab>'
 
@@ -309,6 +310,11 @@ if exists("+colorcolumn")
   set colorcolumn=80
 endif
 
+set ignorecase
+set smartcase
+set incsearch
+set showmatch
+set hlsearch
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -316,14 +322,14 @@ endif
 "  ---------------------------------------------------------------------------
 "#############################################################################
 
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>"
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+nmap <Left> :echoe "Use h"<CR>
+nmap <Right> :echoe "Use l"<CR>
+nmap <Up> :echoe "Use k"<CR>
+nmap <Down> :echoe "Use j"<CR>"
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 
 "key mapping for window navigation
 map <C-h> <C-w>h
@@ -332,32 +338,31 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Searching / moving
-nnoremap / /\v
-vnoremap / /\v
+nmap / /\v
+vmap / /\v
 nmap <leader>h :noh<CR>
 
+" Opens Rspec directly or VSplit
 nmap <C-A><C-A> :A<CR>
 nmap <C-A><C-V> :AV<CR>
-
-set ignorecase
-set smartcase
-set incsearch
-set showmatch
-set hlsearch
 
 " Center screen when scrolling search results
 nmap n nzz
 nmap N Nzz
 
 " New Tab
-nnoremap <leader>t :tabnew<CR>
+nmap <leader>t :tabnew<CR>
 
 " Open Explor
-nnoremap <leader>e :Explore<CR>
+nmap <leader>e :Explore<CR>
 
 " AG
 " TODO add current word into search bar
-nnoremap <leader>a :Ag<CR>
+nmap <leader>a :Ag<CR>
+
+nmap <leader>ff :FZF<cr>
+nmap <leader>fg :GFiles<cr>
+nmap <leader>fb :Buffer<cr>
 
 " Switch between buffers
 noremap <tab> :bn<CR>
@@ -445,9 +450,6 @@ set conceallevel=0
 let g:vim_json_conceal=0
 " let g:markdown_syntax_conceal=0
 
-nmap <leader>ff :FZF<cr>
-nmap <leader>fg :GFiles<cr>
-nmap <leader>fb :Buffer<cr>
 set rtp+=/usr/local/opt/fzf
 let g:fzf_preview_window = ['hidden,right,50%,<70(up,40%)', 'ctrl-/']
 
