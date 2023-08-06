@@ -42,6 +42,7 @@ Plug 'mattn/emmet-vim'
 Plug 'Yggdroot/indentLine'
 
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
 
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
@@ -345,6 +346,7 @@ set rtp+=/usr/local/opt/fzf
 let g:fzf_preview_window = ['hidden,right,50%,<70(up,40%)', 'ctrl-/']
 
 lua require('mappings')
+lua require('config')
 
 au CursorHold * checktime
 au FocusGained * checktime
