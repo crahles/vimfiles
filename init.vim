@@ -26,6 +26,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'ggreer/the_silver_searcher'
 
 " Syntax checker
+" TODO(dh) - remove me
 Plug 'scrooloose/syntastic'
 
 Plug 'tpope/vim-commentary'
@@ -101,7 +102,6 @@ set nowritebackup
 set noswapfile
 set history=1000
 set autoread
-:tnoremap <Esc> <C-\><C-n>
 
 set statusline=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -160,36 +160,10 @@ let g:closetag_filenames = "*.html.erb,*.html,*.xhtml,*.phtml"
 
 let g:user_emmet_leader_key=','
 
-" Use `lp` and `ln` for navigate diagnostics
-nmap <silent> <Leader>w <Plug>(coc-diagnostic-prev)
-nmap <silent> <Leader>s <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> <Leader>d <Plug>(coc-definition)
-nmap <silent> <Leader>D <Plug>(coc-type-definition)
-nmap <silent> <Leader>i <Plug>(coc-implementation)
-nmap <silent> <Leader>r <Plug>(coc-references)
-nmap <silent> <Leader>q <Plug>(coc-codeaction)
-
 "#############################################################################
 " Golang support
 "#############################################################################
-if has("autocmd")
-  au BufNewFile,BufRead *.go set filetype=go
-  au FileType go nmap <Leader>b <Plug>(go-build)
-  au FileType go nmap <Leader>gd <Plug>(go-doc)
-  au FileType go nmap <Leader>i <Plug>(go-info)
-  au FileType go nmap <Leader>r <Plug>(go-run)
-  " au FileType go nmap <Leader>t <Plug>(go-test)
-  au FileType go nmap gd <Plug>(go-def-tab)
-  au FileType go setl ts=4 sw=4 sts=4 noet
-
-  au BufNewFile,BufRead *.vue set filetype=vue
-endif
-
 let g:go_fmt_command = "goimports"
-
-
 " Syntax highlight Functions, Methods, and Structs
 let g:go_highlight_structs = 1
 let g:go_highlight_format_strings = 1
@@ -218,47 +192,8 @@ if has("autocmd")
   " au BufRead,BufNewFile *_spec.rb set filetype=ruby.rspec
   highlight def link rubyRspec Function
 
-  " au FileType ruby map <Leader>r :RuboCop -a<CR>
   au FileType ruby compiler ruby
 endif
-
-"#############################################################################
-"  ---------------------------------------------------------------------------
-"	 AUTOCOMPLETE
-"  ---------------------------------------------------------------------------
-"#############################################################################
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-if has('nvim')
-  imap <silent><expr> <c-space> coc#refresh()
-else
-  imap <silent><expr> <c-@> coc#refresh()
-endif
-
-" Insert <tab> when previous text is space, refresh completion if not.
-" (0) -> only select
-" (1) -> only select and auto replace current word
-imap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1):
-\ <SID>check_back_space() ? "\<Tab>" :
-\ coc#refresh()
-imap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-imap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
-      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-imap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(0) : "\<down>"
-imap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(0) : "\<up>"
-
-let g:coc_snippet_next = '<tab>'
 
 "#############################################################################
 "  ---------------------------------------------------------------------------
@@ -322,51 +257,7 @@ set hlsearch
 "  ---------------------------------------------------------------------------
 "#############################################################################
 
-nmap <Left> :echoe "Use h"<CR>
-nmap <Right> :echoe "Use l"<CR>
-nmap <Up> :echoe "Use k"<CR>
-nmap <Down> :echoe "Use j"<CR>"
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
 
-"key mapping for window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-" Searching / moving
-nmap / /\v
-vmap / /\v
-nmap <leader>h :noh<CR>
-
-" Opens Rspec directly or VSplit
-nmap <C-A><C-A> :A<CR>
-nmap <C-A><C-V> :AV<CR>
-
-" Center screen when scrolling search results
-nmap n nzz
-nmap N Nzz
-
-" New Tab
-nmap <leader>t :tabnew<CR>
-
-" Open Explor
-nmap <leader>e :Explore<CR>
-
-" AG
-" TODO add current word into search bar
-nmap <leader>a :Ag<CR>
-
-nmap <leader>ff :FZF<cr>
-nmap <leader>fg :GFiles<cr>
-nmap <leader>fb :Buffer<cr>
-
-" Switch between buffers
-noremap <tab> :bn<CR>
-noremap <S-tab> :bp<CR>
 
 " emmit
 let g:user_emmet_leader_key=','
@@ -453,7 +344,7 @@ let g:vim_json_conceal=0
 set rtp+=/usr/local/opt/fzf
 let g:fzf_preview_window = ['hidden,right,50%,<70(up,40%)', 'ctrl-/']
 
-lua require('config')
+lua require('mappings')
 
 au CursorHold * checktime
 au FocusGained * checktime
