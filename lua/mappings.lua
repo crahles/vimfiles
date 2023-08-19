@@ -7,6 +7,7 @@ vim.keymap.set('n', '<leader>a', ':Ag<CR>')
 vim.keymap.set('n', '<leader>fb', ':Buffer<cr>')
 vim.keymap.set('n', '<leader>ff', ':FZF<cr>')
 vim.keymap.set('n', '<leader>fg', ':GFiles<cr>')
+vim.keymap.set('n', '<c-o>', ':GFiles<cr>')
 vim.keymap.set('n', '<leader>fw', ':Ag <c-r><c-w>')
 
 -- Disable arrow keys
@@ -19,9 +20,11 @@ vim.keymap.set('i', '<down>', '<nop>')
 vim.keymap.set('i', '<left>', '<nop>')
 vim.keymap.set('i', '<right>', '<nop>')
 
--- Searching / moving
+-- Searching
 vim.keymap.set('n', '<leader>h' ,':noh<CR>')
-vim.keymap.set('v', '/', '/\v')
+-- TODO this is not working
+-- vim.keymap.set('n', '/', "/\v")
+-- TODO how to use paste of current visualized word
 
 -- Opens Rspec directly or VSplit
 vim.keymap.set('n', '<C-A><C-A>', ':A<CR>')

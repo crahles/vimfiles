@@ -345,6 +345,9 @@ let g:vim_json_conceal=0
 set rtp+=/usr/local/opt/fzf
 let g:fzf_preview_window = ['hidden,right,50%,<70(up,40%)', 'ctrl-/']
 
+" TODO this does not work on lua
+nmap / /\v
+
 lua require('mappings')
 lua require('config')
 
