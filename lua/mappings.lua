@@ -39,6 +39,7 @@ vim.keymap.set('n', '<leader>t', ':tabnew<CR>')
 
 -- Open Explor
 vim.keymap.set('n', '<leader>e', ':Explore<CR>')
+vim.keymap.set('n', ';', ':')
 
 -- vim.keymap.set('t', '<Esc>', '<C-\><C-n>')
 
@@ -87,11 +88,11 @@ local opts = {
     silent = true, noremap = true, expr = true, replace_keycodes = false
 }
 
-vim.keymap.set("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
-vim.keymap.set("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+vim.keymap.set("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(0) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
+vim.keymap.set("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(0) : "\<C-h>"]], opts)
 
-vim.keymap.set("i", "<C-j>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
-vim.keymap.set("i", "<C-k>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+vim.keymap.set("i", "<C-j>", 'coc#pum#visible() ? coc#pum#next(0) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
+vim.keymap.set("i", "<C-k>", [[coc#pum#visible() ? coc#pum#prev(0) : "\<C-h>"]], opts)
 
 -- Make <CR> to accept selected completion item or notify coc.nvim to format
 -- <C-g>u breaks current undo, please make your own choice

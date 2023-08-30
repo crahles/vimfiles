@@ -15,6 +15,7 @@ call plug#begin('~/vimfiles/plugged')
 "#############################################################################
 Plug 'Townk/vim-autoclose'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -27,7 +28,7 @@ Plug 'ggreer/the_silver_searcher'
 
 " Syntax checker
 " TODO(dh) - remove me
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -44,9 +45,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'alvan/vim-closetag'
 
@@ -58,6 +56,7 @@ Plug 'alvan/vim-closetag'
 "#############################################################################
 Plug 'rakr/vim-one'
 Plug 'sainnhe/everforest'
+Plug 'RRethy/nvim-base16'
 "#############################################################################
 "  ---------------------------------------------------------------------------
 " Language Support
@@ -71,7 +70,7 @@ Plug 'jgdavey/vim-blockle'
 
 " Basic syntax highglighting for some languages
 " e.g coffee
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " Plug 'kchmck/vim-coffee-script'
 " Plug 'cakebaker/scss-syntax.vim'
@@ -84,7 +83,7 @@ Plug 'tpope/vim-markdown'
 Plug 'leafOfTree/vim-vue-plugin'
 
 Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby'
+" Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-haml'
 
 call plug#end()
@@ -105,7 +104,7 @@ set history=1000
 set autoread
 
 set statusline=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 set autowrite
