@@ -20,6 +20,10 @@ vim.keymap.set('i', '<down>', '<nop>')
 vim.keymap.set('i', '<left>', '<nop>')
 vim.keymap.set('i', '<right>', '<nop>')
 
+vim.keymap.set("n", "<leader>re", ":!rubocop %<CR>")
+vim.keymap.set("n", "<leader>rr", ":!rubocop -a %<CR>", {silent = true})
+vim.keymap.set("n", "<leader>ra", ":!rubocop -A %<CR>", {silent = true})
+
 -- Searching
 vim.keymap.set('n', '<leader>h' ,':noh<CR>')
 -- TODO this is not working
@@ -104,8 +108,6 @@ vim.keymap.set("i", "<c-space>", "coc#refresh()", {silent = true, expr = true})
 -- Symbol renaming
 vim.keymap.set("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
 
--- Symbol renaming
-keyset("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
 
 
 
