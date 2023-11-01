@@ -1,5 +1,3 @@
-print("Hello Mappings")
-
 -- Word Search
 vim.keymap.set('n', '<leader>a', ':Ag<CR>')
 
