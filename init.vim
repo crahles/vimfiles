@@ -89,6 +89,13 @@ Plug 'tpope/vim-haml'
 call plug#end()
 
 
+" note that if you are using Plug mapping you should not use `noremap` mappings.
+nmap <silent><leader>m <Plug>(lcn-menu)
+" Or map each action separately
+nmap <silent><leader>k <Plug>(lcn-hover)
+nmap <silent><leader>gd <Plug>(lcn-definition)
+nmap <silent> <leader>rm <Plug>(lcn-rename)
+
 
 "#############################################################################
 "  General
