@@ -319,7 +319,14 @@ colorscheme everforest
 
 " soft / medium / hard
 let g:everforest_background = 'medium'
-set background=light
+
+let output =  system("defaults read -g AppleInterfaceStyle")
+if v:shell_error != 0
+    set background=light
+else
+    set background=dark
+endif
+" set background=light
 
 "  ---------------------------------------------------------------------------
 "  Plugins
