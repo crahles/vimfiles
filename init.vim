@@ -26,6 +26,12 @@ Plug 'junegunn/fzf.vim'
 " Find stuff
 Plug 'ggreer/the_silver_searcher'
 
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+
 " Syntax checker
 " TODO(dh) - remove me
 " Plug 'scrooloose/syntastic'
@@ -72,7 +78,7 @@ Plug 'jgdavey/vim-blockle'
 " e.g coffee
 " Plug 'sheerun/vim-polyglot'
 
-" Plug 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script'
 " Plug 'cakebaker/scss-syntax.vim'
 
 " More Highlighting for typescript
@@ -88,6 +94,13 @@ Plug 'tpope/vim-haml'
 
 call plug#end()
 
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ }
 
 " note that if you are using Plug mapping you should not use `noremap` mappings.
 nmap <silent><leader>m <Plug>(lcn-menu)
