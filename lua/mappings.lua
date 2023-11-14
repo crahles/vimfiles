@@ -20,8 +20,8 @@ vim.keymap.set('i', '<down>', '<nop>')
 vim.keymap.set('i', '<left>', '<nop>')
 vim.keymap.set('i', '<right>', '<nop>')
 
-vim.keymap.set("n", "<leader>re", ":!rubocop %<CR>")
-vim.keymap.set("n", "<leader>rr", ":!rubocop -a %<CR>", {silent = true})
+vim.keymap.set("n", "<leader>rr", ":!rubocop %<CR>")
+vim.keymap.set("n", "<leader>re", ":!rubocop -a %<CR>", {silent = true})
 vim.keymap.set("n", "<leader>ra", ":!rubocop -A %<CR>", {silent = true})
 
 -- Searching
