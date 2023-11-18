@@ -121,6 +121,7 @@ vim.g.AutoCloseProtectedRegions = {"Character"}
 -- Everforest Farbschema Konfiguration
 vim.g.everforest_background = 'medium'
 vim.cmd('colorscheme everforest')
+vim.api.nvim_set_option('termguicolors', true)
 
 -- DeleteTrailingWhitespace Konfiguration
 vim.g.DeleteTrailingWhitespace = 1
