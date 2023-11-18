@@ -14,8 +14,8 @@ require('config')
 vim.o.number = true
 vim.o.relativenumber = false
 vim.o.syntax = 'enable'
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.title = true
 vim.o.encoding = 'utf-8'
@@ -108,5 +108,5 @@ vim.cmd('au CursorHold * checktime')
 vim.cmd('au FocusGained * checktime')
 
 -- Vimrc automatisch neu laden, wenn es bearbeitet wird
-vim.cmd('autocmd! bufwritepost .init.vim source %')
-vim.cmd('autocmd! bufwritepost init.vim source %')
+vim.cmd('autocmd! bufwritepost .init.lua source %')
+vim.cmd('autocmd! bufwritepost init.lua source %')
